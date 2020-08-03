@@ -5,16 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import pub.devrel.easypermissions.EasyPermissions;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.liany.csi.base.AppApplication;
+import com.liany.csiclient.view.LoginActivity;
+import com.liany.csiclient.view.SplashActivity;
 import com.liany.csiserverapp.andServer.manager.ServerManager;
 import com.liany.csiserverapp.debug.ServerApplication;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements EasyPermissions.PermissionCallbacks{
+
+    private final long SPLASH_LENGTH = 2000;
+    Handler handler = new Handler();
 
     /**
      * 需要进行检测的权限数组
@@ -28,13 +35,15 @@ public class MainActivity extends AppCompatActivity implements EasyPermissions.P
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_main);
         getPermission();
-//        AndService andService = ((AndService) ARouter.getInstance().build("/service/andService").navigation());
-//        Intent intent = new Intent(this, AndService.class);
-//        startService(intent);
         ServerManager serverManager = new ServerManager(this);
         serverManager.startServer();
         ServerApplication.setDaoSession(AppApplication.getDaoSession());
-        ARouter.getInstance().build("/csi/login").navigation();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                ARouter.getInstance().build("/csi/login").navigation();
+                finish();
+            }
+        }, SPLASH_LENGTH);
     }
 
     @Override

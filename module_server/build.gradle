@@ -81,6 +81,11 @@ android {
         targetGenDirTests 'src/main/java' //应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
     }
 
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libnative-lib.so'
+        pickFirst 'lib/arm64-v8a/libnative-lib.so'
+    }
+
 }
 
 dependencies {
