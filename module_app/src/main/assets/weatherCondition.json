@@ -1,0 +1,346 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "amapValue": "晴",
+            "dictValue": "晴",
+            "dictKey": "2"
+        },
+        {
+            "amapValue": "少云",
+            "dictValue": "晴",
+            "dictKey": "2"
+        },
+        {
+            "amapValue": "晴间多云",
+            "dictValue": "晴",
+            "dictKey": "2"
+        },
+        {
+            "amapValue": "多云",
+            "dictValue": "晴",
+            "dictKey": "2"
+        },
+        {
+            "amapValue": "阴",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "有风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "平静",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "微风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "和风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "清风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "强风/劲风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "疾风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "大风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "烈风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "风暴",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "狂爆风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "飓风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "热带风暴",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "霾",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "中度霾",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "重度霾",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "严重霾",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "阵雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "雷阵雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "雷阵雨并伴有冰雹",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "小雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "中雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "大雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "暴雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "大暴雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "特大暴雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "强阵雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "强雷阵雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "极端降雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "毛毛雨/细雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "小雨-中雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "中雨-大雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "大雨-暴雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "暴雨-大暴雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "大暴雨-特大暴雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "雨雪天气",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "雨夹雪",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "阵雨夹雪",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "冻雨",
+            "dictValue": "雨",
+            "dictKey": "3"
+        },
+        {
+            "amapValue": "雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "阵雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "小雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "中雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "大雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "暴雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "小雪-中雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "中雪-大雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "大雪-暴雪",
+            "dictValue": "雪",
+            "dictKey": "4"
+        },
+        {
+            "amapValue": "浮尘",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "扬沙",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "沙尘暴",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "强沙尘暴",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "龙卷风",
+            "dictValue": "阴",
+            "dictKey": "1"
+        },
+        {
+            "amapValue": "雾",
+            "dictValue": "雾",
+            "dictKey": "5"
+        },
+        {
+            "amapValue": "浓雾",
+            "dictValue": "雾",
+            "dictKey": "5"
+        },
+        {
+            "amapValue": "强浓雾",
+            "dictValue": "雾",
+            "dictKey": "5"
+        },
+        {
+            "amapValue": "轻雾",
+            "dictValue": "雾",
+            "dictKey": "5"
+        },
+        {
+            "amapValue": "大雾",
+            "dictValue": "雾",
+            "dictKey": "5"
+        },
+        {
+            "amapValue": "特强浓雾",
+            "dictValue": "雾",
+            "dictKey": "5"
+        },
+        {
+            "amapValue": "热",
+            "dictValue": "晴",
+            "dictKey": "2"
+        },
+        {
+            "amapValue": "冷",
+            "dictValue": "晴",
+            "dictKey": "2"
+        },
+        {
+            "amapValue": "未知",
+            "dictValue": "晴",
+            "dictKey": "2"
+        }
+    ]
+}

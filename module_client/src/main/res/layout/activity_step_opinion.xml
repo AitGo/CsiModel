@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/layout_titlebar"/>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:isScrollContainer="false">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F7F7F7">
+
+            <LinearLayout
+                android:id="@+id/add_tool"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="1dp"
+                android:weightSum="1"
+                android:background="#FFFFFF">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@mipmap/img_add_tool" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/add_tools"
+                    android:textSize="16sp"
+                    android:layout_weight="1"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:visibility="gone"
+                    android:background="@mipmap/add" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/tool_listView"
+                android:background="#FFFFFF" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="案件性质"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimeCharacter"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="选择处所"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/selectLocation"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="作案时机"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimeTiming"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="作案入口"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimeEntrance"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="作案出口"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimeExport"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="侵入方式"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/intrusiveMethod"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="作案手段"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="visible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimeMeans"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="作案人数"
+                        android:textColor="#FF999999"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/peopleNumber"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="选择对象"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/selectObject"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="作案人特点"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="3dp"/>
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/peopleFeature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="6dp"
+                    android:textColor="#ff3e3e3e"
+                    android:singleLine="false"
+                    android:layout_marginRight="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="作案特点"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimeFeature"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="动机目的"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="0dp"/>
+
+                    <TextView
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:gravity="left|center"
+                    android:id="@+id/crimePurpose"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:textColor="@color/black"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

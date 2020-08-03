@@ -1,0 +1,60 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "dictLevel": "1",
+            "dictKey": "100",
+            "parentKey": "AJXZDM",
+            "rootKey": "AJXZDM",
+            "dictValue": "盗窃案件",
+            "dictPy": "DQAJ",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "103",
+            "parentKey": "100",
+            "rootKey": "AJXZDM",
+            "dictValue": "技术性开锁盗窃",
+            "dictPy": "JSXKSDQ",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "110",
+            "parentKey": "100",
+            "rootKey": "AJXZDM",
+            "dictValue": "插片入室盗窃案件",
+            "dictPy": "CPRSDQAJ",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "102",
+            "parentKey": "100",
+            "rootKey": "AJXZDM",
+            "dictValue": "攀爬入室盗窃案件",
+            "dictPy": "PPRSDQAJ",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "121",
+            "parentKey": "100",
+            "rootKey": "AJXZDM",
+            "dictValue": "盗窃车内物品",
+            "dictPy": "DQCNWP",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "199",
+            "parentKey": "100",
+            "rootKey": "AJXZDM",
+            "dictValue": "其他盗窃案件",
+            "dictPy": "QTDQAJ",
+            "remark": ""
+        }
+    ]
+}

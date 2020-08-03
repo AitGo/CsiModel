@@ -1,0 +1,40 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "casetypeKey": "050201",
+            "casetype": "入室盗窃案",
+            "selectLocationList": [
+                {   "selectLocationKey": "2402,2405,2406",
+                    "selectLocationParentKey": "2400"
+                },
+                {
+                    "selectLocationKey": "2201",
+                    "selectLocationParentKey": "2200"
+                }
+            ]
+        },
+        {
+            "casetypeKey": "050248",
+            "casetype": "其他盗窃案件",
+            "selectLocationList": [
+                {   "selectLocationKey": "",
+                    "selectLocationParentKey": "1500"
+                },
+                {
+                    "selectLocationKey": "2216",
+                    "selectLocationParentKey": "2200"
+                },
+                {
+                    "selectLocationKey": "1408",
+                    "selectLocationParentKey": "1400"
+                },
+                {
+                    "selectLocationKey": "1311",
+                    "selectLocationParentKey": "1300"
+                }
+            ]
+        }
+    ]
+}

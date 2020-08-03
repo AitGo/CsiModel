@@ -1,0 +1,108 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "casetypeKey": "050201",
+            "casetype": "入室盗窃案",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050248",
+            "casetype": "其他盗窃案件",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050225",
+            "casetype": "盗窃车内财物案",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050224",
+            "casetype": "盗窃摩托车",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050228",
+            "casetype": "盗窃电动自行车",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050227",
+            "casetype": "盗窃自行车",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050234",
+            "casetype": "盗窃电缆线案",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050237",
+            "casetype": "盗窃牲畜",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050240",
+            "casetype": "扒窃",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "100"
+        },
+        {
+            "casetypeKey": "050300",
+            "casetype": "诈骗",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "200"
+        },
+        {
+            "casetypeKey": "050102",
+            "casetype": "挡路抢劫",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "400"
+        },
+        {
+            "casetypeKey": "050400",
+            "casetype": "抢夺",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "500"
+        },
+        {
+            "casetypeKey": "040103",
+            "casetype": "故意伤害",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "900"
+        },
+        {
+            "casetypeKey": "040101",
+            "casetype": "故意杀人案",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "600"
+        },
+        {
+            "casetypeKey": "110000",
+            "casetype": "非正常死亡案（事）件",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "1000"
+        },
+        {
+            "casetypeKey": "040105",
+            "casetype": "强奸案",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "800"
+        },
+        {
+            "casetypeKey": "040107",
+            "casetype": "强制猥亵、侮辱妇女",
+            "crimeCharacter": "AJXZDM",
+            "crimeCharacterKey": "800"
+        }
+    ]
+}

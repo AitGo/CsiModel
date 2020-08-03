@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.liany.csiclient">
+
+    <!--android 9.0上使用前台服务，需要添加权限-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE"></uses-permission>
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+    <!--用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <!--用于获取运营商信息，用于支持提供运营商信息相关的接口-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    <!--用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <!--用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
+    <!--用于访问网络，网络定位需要上网-->
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <!--用于读取手机当前的状态-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <!--用于写入缓存数据到扩展存储卡-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <!--用于申请调用A-GPS模块-->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"></uses-permission>
+    <!--用于申请获取蓝牙信息进行室内定位-->
+    <uses-permission android:name="android.permission.BLUETOOTH"></uses-permission>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+
+    <application
+        android:name=".debug.ClientApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_liany"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_liany"
+        android:configChanges="orientation|keyboardHidden"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        tools:replace="android:name,android:networkSecurityConfig">
+
+        <provider
+            tools:replace="android:authorities"
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.liany.csiclient.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                tools:replace="android:resource"
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="e66c7a2f0f928870bd0a01dfb1709144"/>
+
+        <activity android:name=".view.SplashActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.SceneListFragmentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.CreateSceneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.SceneListComparisonContactsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.SceneListComparisonEvidenceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.SceneListComparisonEvidenceFingerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.SceneListComparisonEvidenceFootActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.BaseInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_RadioListActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_RadioList_DictActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_CheckListActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_CheckList_DictActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_Check_UserActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_Radio_UserActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_Radio_UnitActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_Expand_RadioActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_Expand_CheckActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Select_Expand3_CheckActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.WifiActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.WitnessActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".view.subView.sceneStep.step_window.Witness_AddActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Witness_HandWriteActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name=".view.subView.sceneStep.SituationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.PhotoViewActivity" />
+        <activity android:name=".view.subView.sceneStep.PhotoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.FigureActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Figure_PositionActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="orientation|keyboard"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Figure_LegendActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".view.subView.sceneStep.VisitActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Visit_AddContactsActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.PhotoView_RotateActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Visit_AddItemActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Opinion_AddToolActivity"
+            android:theme="@style/Theme.SmallWindow"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.ExtractActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.ProspectingActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Extract_AddActivity" />
+        <activity android:name=".view.subView.sceneStep.EvidenceActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Evidence_Add_FingerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Evidence_Add_FootActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Evidence_Add_OtherActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Evidence_Add_FaceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".widget.myCamera.CameraActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".widget.myCamera.CameraImageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.OpinionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.StationCollectionActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Comparison_FingerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Comparison_FootActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Comparison_PeopleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.Comparison_FaceActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.SettingActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
+        <activity android:name=".view.subView.sceneStep.VideoViewActivity"
+            android:screenOrientation="sensor"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Visit_AddContacts_FingerActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".widget.image.ImageProcessActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Compare_Finger_addActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Compare_Foot_addActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".view.subView.sceneStep.step_window.Compare_Face_addActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".widget.image.MyUcropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <service android:name="com.amap.api.location.APSService"></service>
+
+        <service android:name=".alarm.AlarmService" >
+        </service>
+
+        <receiver android:name=".alarm.AlarmReceiver"
+            android:process=":newinst">
+        </receiver>
+        <receiver android:name=".alarm.BootCompleteReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

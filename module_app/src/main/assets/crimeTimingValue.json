@@ -1,0 +1,51 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "dictLevel": "2",
+            "dictKey": "42",
+            "parentKey": "30",
+            "rootKey": "ZASJDFLDM",
+            "dictValue": "上午",
+            "dictPy": "SW",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "44",
+            "parentKey": "30",
+            "rootKey": "ZASJDFLDM",
+            "dictValue": "下午",
+            "dictPy": "XW",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "45",
+            "parentKey": "30",
+            "rootKey": "ZASJDFLDM",
+            "dictValue": "傍晚",
+            "dictPy": "BW",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "46",
+            "parentKey": "30",
+            "rootKey": "ZASJDFLDM",
+            "dictValue": "上半夜",
+            "dictPy": "SBY",
+            "remark": ""
+        },
+        {
+            "dictLevel": "2",
+            "dictKey": "48",
+            "parentKey": "30",
+            "rootKey": "ZASJDFLDM",
+            "dictValue": "下半夜",
+            "dictPy": "XBY",
+            "remark": ""
+        }
+    ]
+}

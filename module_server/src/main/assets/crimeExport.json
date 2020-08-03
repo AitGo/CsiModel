@@ -1,0 +1,21 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "dictKey": "10",
+            "dictValue": "门",
+            "remark": ""
+        },
+        {
+            "dictKey": "20",
+            "dictValue": "窗",
+            "remark": ""
+        },
+        {
+            "dictKey": "90",
+            "dictValue": "其他",
+            "remark": ""
+        }
+    ]
+}

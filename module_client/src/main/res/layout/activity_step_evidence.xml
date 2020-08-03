@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include layout="@layout/layout_titlebar"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/ll_add_evidence_finger"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_evidence_state_finger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/expand_open"/>
+
+                <ImageView
+                    android:id="@+id/iv_evidence_icon_finger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_state_finger"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/evidence_finger"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_title_finger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_icon_finger"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="指纹"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_num_finger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_evidence_title_finger"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="(0)"/>
+
+                <ImageButton
+                    android:id="@+id/ib_evidence_compare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/iv_evidence_finger"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/compare"/>
+
+                <ImageButton
+                    android:id="@+id/iv_evidence_finger"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/getphoto"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_evidence_finger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/ll_add_evidence_foot"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_evidence_state_foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/expand_open"/>
+
+                <ImageView
+                    android:id="@+id/iv_evidence_icon_foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_state_foot"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/evidence_foot"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_title_foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_icon_foot"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="足迹"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_num_foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_evidence_title_foot"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="(0)"/>
+
+                <ImageButton
+                    android:id="@+id/ib_evidence_compare_foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/iv_evidence_foot"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/compare"/>
+
+                <ImageButton
+                    android:id="@+id/iv_evidence_foot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/getphoto"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_evidence_foot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/ll_add_evidence_face"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_evidence_state_face"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/expand_open"/>
+
+                <ImageView
+                    android:id="@+id/iv_evidence_icon_face"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_state_face"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/evidence_face"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_title_face"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_icon_face"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="人像"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_num_face"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_evidence_title_face"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="(0)"/>
+
+                <ImageButton
+                    android:id="@+id/iv_evidence_face"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/getphoto"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_evidence_face"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/ll_add_evidence_other"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_evidence_state_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/expand_open"/>
+
+                <ImageView
+                    android:id="@+id/iv_evidence_icon_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_state_other"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/trace"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_title_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_evidence_icon_other"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="工痕其他"/>
+
+                <TextView
+                    android:id="@+id/tv_evidence_num_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_evidence_title_other"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="(0)"/>
+
+                <ImageButton
+                    android:id="@+id/iv_evidence_other"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/getphoto"/>
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_evidence_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/ll_add_monitoring"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_monitoring_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/expand_open"/>
+
+                <ImageView
+                    android:id="@+id/iv_monitoring_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_monitoring_state"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/monitoring"/>
+
+                <TextView
+                    android:id="@+id/tv_monitoring_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_monitoring_icon"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="视频图片"/>
+
+                <TextView
+                    android:id="@+id/tv_monitoring_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_monitoring_title"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="(0)"/>
+
+                <ImageButton
+                    android:id="@+id/iv_monitoring_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@id/iv_monitoring"
+                    android:background="@mipmap/pic_image" />
+
+                <ImageButton
+                    android:id="@+id/iv_monitoring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/getphoto" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_monitoring_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/ll_add_camera"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_camera_state"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/expand_open"/>
+
+                <ImageView
+                    android:id="@+id/iv_camera_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_camera_state"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/camera2"/>
+
+                <TextView
+                    android:id="@+id/tv_camera_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_camera_icon"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="摄像头位置"/>
+
+                <TextView
+                    android:id="@+id/tv_camera_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/tv_camera_title"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="16sp"
+                    android:text="(0)"/>
+
+                <ImageButton
+                    android:id="@+id/iv_camera_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/iv_camera"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/pic_image" />
+
+                <ImageButton
+                    android:id="@+id/iv_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:background="@mipmap/getphoto"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_camera_photo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

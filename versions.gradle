@@ -1,0 +1,126 @@
+/**
+ * Shared file between builds so that they can all use the same dependencies and
+ * maven repositories.
+ **/
+ext.deps = [:]
+
+def versions = [:]
+versions.android_gradle_plugin = '3.5.3'
+versions.support = "1.1.0"
+versions.constraintlayout = "1.1.3"
+versions.multidex = "2.0.0"
+versions.andServer_api = '2.1.1'
+versions.rxjava = '2.1.0'
+versions.rxandroid = '2.0.1'
+versions.retrofit = '2.6.2'
+versions.greendao = '3.3.0'
+versions.gson = '2.8.6'
+versions.crashreport_upgrade = '1.4.2'
+versions.nativecrashreport = '3.7.1'
+versions.sourceafis = '3.8.1'
+versions.annotations = '15.0'
+versions.xpopup = '1.8.10-x'
+versions.butterknife = '10.2.1'
+versions.eventbus = '3.1.1'
+versions.easypermissions = '3.0.0'
+versions.glide = "4.10.0"
+versions.brvah = "2.9.45-androidx"
+versions.banner = "1.4.10"
+versions.okgo = "3.0.4"
+versions.ucrop = "2.2.5"
+versions.zxing = "2.2"
+versions.smartrefresh = "1.1.0-alpha-7"
+versions.timepicker = "4.1.9"
+versions.luban = "1.1.7"
+versions.photoview = "1.2.4"
+versions.dropdown_menu = "1.0.4"
+versions.progress_manager = "1.5.0"
+versions.seekbar = "2.0.9"
+versions.open_cv = "3.4.0"
+versions.type_builder = "1.0"
+
+//Arouter
+versions.arouter_compiler = "1.1.4"
+versions.arouter_api = "1.3.1"
+
+
+
+def deps = [:]
+
+def support = [:]
+support.app_compat = "androidx.appcompat:appcompat:$versions.support"
+support.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+support.recyclerview = "androidx.recyclerview:recyclerview:$versions.support"
+support.design = "com.google.android.material:material:$versions.support"
+support.multidex = "androidx.multidex:multidex:$versions.multidex"
+deps.support = support
+
+def andServer = [:]
+andServer.api = "com.yanzhenjie.andserver:api:$versions.andServer_api"
+andServer.processor = "com.yanzhenjie.andserver:processor:$versions.andServer_api"
+deps.andServer = andServer
+
+def retrofit = [:]
+retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
+retrofit.adapter = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
+retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+deps.retrofit = retrofit
+
+//view
+deps.constraint_layout = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+deps.xpopup = "com.lxj:xpopup:$versions.xpopup"
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+deps.rx_android = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+//other
+deps.glide = "com.github.bumptech.glide:glide:$versions.glide"
+deps.glide_compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.event_bus = "org.greenrobot:eventbus:$versions.eventbus"
+deps.greendao = "org.greenrobot:greendao:$versions.greendao"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.bugly_upgrade = "com.tencent.bugly:crashreport_upgrade:$versions.crashreport_upgrade"
+deps.bugly_nativecrashreport = "com.tencent.bugly:nativecrashreport:$versions.nativecrashreport"
+deps.permission = "pub.devrel:easypermissions:$versions.easypermissions"
+deps.sourceafis = "com.machinezoo.sourceafis:sourceafis:$versions.sourceafis"
+deps.annotations = "org.jetbrains:annotations:$versions.annotations"
+deps.butterknife = "com.jakewharton:butterknife:$versions.butterknife"
+deps.butterknife_compiler = "com.jakewharton:butterknife-compiler:$versions.butterknife"
+deps.brvah = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.brvah"
+deps.banner = "com.youth.banner:banner:$versions.banner"
+deps.okgo = "com.lzy.net:okgo:$versions.okgo"
+deps.ucrop = "com.github.yalantis:ucrop:$versions.ucrop"
+deps.zxing = "cn.yipianfengye.android:zxing-library:$versions.zxing"
+deps.smartrefresh = "com.scwang.smartrefresh:SmartRefreshLayout:$versions.smartrefresh"
+deps.smartrefreshhead = "com.scwang.smartrefresh:SmartRefreshHeader:$versions.smartrefresh"
+deps.timepicker = "com.contrarywind:Android-PickerView:$versions.timepicker"
+deps.luban = "top.zibin:Luban:$versions.luban"
+deps.photoview = "com.commit451:PhotoView:$versions.photoview"
+deps.dropdown_menu = "com.github.dongjunkun:DropDownMenu:$versions.dropdown_menu"
+deps.progress_manager = "me.jessyan:progressmanager:$versions.progress_manager"
+deps.seekbar = "com.github.warkiz.widget:indicatorseekbar:$versions.seekbar"
+deps.open_cv = "org.opencv:openCVLibrary:$versions.open_cv"
+deps.type_builder = "com.github.ikidou:TypeBuilder:$versions.type_builder"
+
+deps.arouter_api = "com.alibaba:arouter-api:$versions.arouter_api"
+deps.arouter_compiler = "com.alibaba:arouter-compiler:$versions.arouter_compiler"
+
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.target_sdk = 29
+build_versions.build_tools = "29.0.2"
+ext.build_versions = build_versions
+
+
+def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    //Add the JitPack repository
+    handler.maven { url "https://jitpack.io" }
+    handler.maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+}
+
+ext.addRepos = this.&addRepos

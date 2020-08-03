@@ -1,0 +1,42 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "dictLevel": "1",
+            "dictKey": "2100",
+            "parentKey": "QRFSFLDM",
+            "rootKey": "QRFSFLDM",
+            "dictValue": "从门侵入",
+            "dictPy": "CMQR",
+            "remark": ""
+        },
+        {
+            "dictLevel": "1",
+            "dictKey": "2200",
+            "parentKey": "QRFSFLDM",
+            "rootKey": "QRFSFLDM",
+            "dictValue": "从窗侵入",
+            "dictPy": "CCQR",
+            "remark": ""
+        },
+        {
+            "dictLevel": "1",
+            "dictKey": "2900",
+            "parentKey": "QRFSFLDM",
+            "rootKey": "QRFSFLDM",
+            "dictValue": "其它侵入手段",
+            "dictPy": "QTQRSD",
+            "remark": ""
+        },
+        {
+            "dictLevel": "1",
+            "dictKey": "2800",
+            "parentKey": "QRFSFLDM",
+            "rootKey": "QRFSFLDM",
+            "dictValue": "和平进入现场",
+            "dictPy": "HPJRXC",
+            "remark": ""
+        }
+    ]
+}

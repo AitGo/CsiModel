@@ -1,0 +1,130 @@
+<resources>
+    <string name="app_name">快勘</string>
+
+    <string name="prompt">提示</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+
+    <string name="company_name">湖南联赢信息技术有限公司</string>
+
+    //login
+    <string name="prompt_user"><font size="15">使用者帐号</font></string>
+    <string name="prompt_password"><font size="15">密码</font></string>
+    <string name="action_sign_in_short">登 录</string>
+    <string name="data_recorvy">恢复数据</string>
+    <string name="device_initial">初始化字典</string>
+    <string name="version_text">版本:</string>
+    <string name="error_invalid_password">密码无效</string>
+    <string name="error_field_required">需要輸入使用者账号</string>
+    <string name="error_incorrect_password">密码不正確</string>
+    <string name="error_initial_device">尚未初始化设备</string>
+
+    //main
+    <string name="text_create">新建现场</string>
+    <string name="text_list">现场列表</string>
+
+    //setting
+    <string name="setting_title">设置</string>
+    <string name="csene_manager">现场管理</string>
+    <string name="backup">备份数据</string>
+    <string name="reactive">初始化字典</string>
+    <string name="recovery">恢复数据</string>
+    <string name="update">更新软件</string>
+    <string name="about">关于\n\n湖南联赢信息技术有限公司\n网址:liany.com\n</string>
+
+    //createScene
+    <string name="create_scene_title">新建现场</string>
+    <string name="update_scene_title">修改现场</string>
+    <string name="title_activity_step0">接勘</string>
+    <string name="title_activity_step1">现场访问</string>
+    <string name="title_activity_step2">现场图</string>
+    <string name="title_activity_step3">现场照片</string>
+    <string name="title_activity_step4">痕迹物证</string>
+    <string name="title_activity_step5">勘验情况</string>
+    <string name="title_activity_step6">分析意见</string>
+    <string name="title_activity_step7">见证人</string>
+    <string name="login_only_can_input">qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM0123456789</string>
+    <string name="default_loading">Loading…</string>
+
+    //scene2 visit
+    <string name="add_people">添加关联人</string>
+    <string name="add_item">添加损失物品</string>
+    <string name="add_tools">添加作案工具</string>
+    <string name="tel">电话:</string>
+    <string name="contacts1">报案人:</string>
+    <string name="contactsEntity2">受害人:</string>
+    <string name="delete">删除</string>
+    <string name="delete_info">确定要删除该项数据吗？</string>
+
+    <string name="item_name">品名:</string>
+    <string name="amount">数量:</string>
+    <string name="value">价值:</string>
+    <string name="toolname">名称:</string>
+    <string name="toolcategory">类目:</string>
+    <string name="toolsource">来源:</string>
+
+
+    //scene3 figure
+    <string name="flat">平面示意图</string>
+    <string name="position">方位示意图</string>
+    <string name="no_permissions">没有相应的权限，请设置后重新打开</string>
+    <string name="setting">设置</string>
+    <string name="editbtn">修改</string>
+    <string name="no_value_edit">暂无数据可以编辑</string>
+    <string name="no_value_upload">暂无完整数据可以上传</string>
+
+    //mycamera
+    <string name="flashlight_auto">auto</string>
+    <string name="flashlight_on">on</string>
+    <string name="flashlight_off">off</string>
+    <string name="flashlight_torch">torch</string>
+    <string name="mode_photo">Photo</string>
+    <string name="mode_dual_camera">Dual Camera</string>
+    <string name="mode_professional">Professional</string>
+    <string name="mode_video">Video</string>
+
+    <string name="settings_msg">Settings</string>
+    <string name="settings_camera">Camera settings</string>
+    <string name="settings_disable">Camera settings not available</string>
+    <string name="setting_options">Options</string>
+    <string name="setting_photo">Photo</string>
+    <string name="setting_video">Video</string>
+    <string name="setting_dual_camera">Dual Camera</string>
+    <string name="setting_advance">Advance</string>
+    <string name="title_enable_dual_camera">Enable dual camera module</string>
+    <string name="summary_restart">Restart App to take effect</string>
+
+    <string name="setting_camera_id">Current camera</string>
+    <string name="setting_main_camera_id">Main camera id</string>
+    <string name="setting_aux_camera_id">Aux camera id</string>
+    <string name="setting_back_camera">back camera</string>
+    <string name="setting_front_camera">front camera</string>
+    <string name="setting_other_camera">other</string>
+
+    <string name="setting_picture_size">Picture size</string>
+    <string name="setting_picture_format">Picture format</string>
+    <string name="setting_preview_size">Preview size</string>
+    <string name="setting_video_size">Video size</string>
+
+    <string name="setting_restart_preview">Restart preview after take picture </string>
+    <string name="show_support_info">show support information</string>
+
+    <string name="permission_tip">Tip</string>
+    <string name="permission_msg">request permission failed! \n
+            you can grant permission in setting interface -> Permissions</string>
+    <string name="permission_btn_setting">go to setting</string>
+    <string name="permission_btn_quit">quit</string>
+    <string name="support_info_title">Camera2 Support Level</string>
+    <string name="support_info_done">Done</string>
+
+    <!-- Adin: 图形操作 -->
+    <string name="btn_text_rotate">90度旋转</string>
+    <string name="btn_text_mirror_h">水平翻转</string>
+    <string name="btn_text_mirror_v">垂直翻转</string>
+    <string name="foot_len">足迹长度</string>
+    <string name="front_width">前掌宽</string>
+    <string name="middle_width">中腰宽</string>
+    <string name="heel_width">后跟宽</string>
+    <string name="hard_edge_len">实边长</string>
+    <string name="stress_len">重压面长</string>
+</resources>

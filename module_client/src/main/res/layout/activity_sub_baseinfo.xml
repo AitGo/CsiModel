@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/layout_titlebar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:isScrollContainer="false">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="45dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="勘验检查人员"
+                    android:textColor="#ff999999"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="3dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:id="@+id/accessInspectors"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:clickable="true"
+                android:textColor="#ff3e3e3e"
+                android:textSize="16sp"
+                android:drawableRight="@mipmap/dropdown"
+                android:background="@drawable/bg_et_underline_selector"/>
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="接警人"
+                        android:textSize="14dp"
+                        android:textColor="#ff999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="40dp"/>
+
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/accessPolicemen"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:maxLines="1"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="天气状况"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="26dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left|center"
+                android:id="@+id/weatherCondition"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:clickable="true"
+                android:textColor="#ff3e3e3e"
+                android:textSize="16sp"
+                android:drawableRight="@mipmap/dropdown"
+                android:background="@drawable/bg_et_underline_selector"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 风 向 "
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="46dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left|center"
+                android:id="@+id/windDirection"
+                android:layout_weight="1"
+                android:layout_marginBottom="6dp"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:clickable="true"
+                android:textColor="#ff3e3e3e"
+                android:textSize="16sp"
+                android:drawableRight="@mipmap/dropdown"
+                android:background="@drawable/bg_et_underline_selector"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 温 度 "
+                    android:textSize="14dp"
+                    android:textColor="#ff999999"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="46dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/temperature"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text=" 湿 度 "
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="46dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/humidity"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="发案区划"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="26dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left|center"
+                android:id="@+id/area"
+                android:layout_weight="1"
+                android:layout_marginBottom="6dp"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:clickable="true"
+                android:textColor="#ff3e3e3e"
+                android:textSize="16sp"
+                android:drawableRight="@mipmap/dropdown"
+                android:background="@drawable/bg_et_underline_selector"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="指派单位"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="26dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/unitsAssigned"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="光照条件"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="26dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left|center"
+                android:id="@+id/illuminationCondition"
+                android:layout_weight="1"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:clickable="true"
+                android:textColor="#ff3e3e3e"
+                android:textSize="16sp"
+                android:drawableRight="@mipmap/dropdown"
+                android:background="@drawable/bg_et_underline_selector"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="保护人姓名"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/productPeople_name"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="保护人单位"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/productPeople_unit"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="保护人职务"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="10dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/productPeople_duties"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="保护措施"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="26dp"/>
+
+            </LinearLayout>
+
+            <com.liany.csiclient.widget.ClearableEditText
+                android:id="@+id/safeguard"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:textColor="#ff3e3e3e"
+                android:layout_marginRight="16dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="现场指挥人员"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="0dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="left|center"
+                android:id="@+id/sceneConductor"
+                android:layout_weight="1"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="8dp"
+                android:clickable="true"
+                android:textColor="#ff3e3e3e"
+                android:textSize="16sp"
+                android:drawableRight="@mipmap/dropdown"
+                android:background="@drawable/bg_et_underline_selector"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="现场条件"
+                    android:textSize="14dp"
+                    android:textColor="#ff999999" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="#FFFF0000"
+                    android:layout_marginRight="26dp"/>
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/radioGroupSceneCondition"
+                android:contentDescription=""
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_et_underline_selector">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:id="@+id/radioSceneCondition1"
+                    android:text="原始现场"
+                    android:textColor="#ff3e3e3e"
+                    android:checked="true"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/bg_radio_selector">
+                </RadioButton>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="14sp"
+                    android:textColor="#ff3e3e3e"
+                    android:id="@+id/radioSceneCondition2"
+                    android:text="变动现场"
+                    android:button="@null"
+                    android:drawableLeft="@drawable/bg_radio_selector">
+                </RadioButton>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/change_reason_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="6dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp">
+                    <CheckBox
+                        android:id="@+id/InformantCkBx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:button="@drawable/bg_checkbox_select"
+                        android:text="报案人进入"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+                    <CheckBox
+                        android:id="@+id/VictimCkBx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:button="@drawable/bg_checkbox_select"
+                        android:text="事主进入"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+                    <CheckBox
+                        android:id="@+id/OtherCkBx"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginLeft="10dp"
+                        android:button="@drawable/bg_checkbox_select"
+                        android:text="其他"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/change_reason"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    app:hint="输入其它变动原因"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

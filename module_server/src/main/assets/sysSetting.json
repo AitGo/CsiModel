@@ -1,0 +1,70 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "crimeCharacter": "",
+            "crimeCharacterKey": "",
+        },
+        {
+            "dictKey": "050248",
+            "dictValue": "其他盗窃案件"
+        },
+        {
+            "dictKey": "050225",
+            "dictValue": "盗窃车内财物案"
+        },
+        {
+            "dictKey": "050224",
+            "dictValue": "盗窃摩托车"
+        },
+        {
+            "dictKey": "050228",
+            "dictValue": "盗窃电动自行车"
+        },
+        {
+            "dictKey": "050227",
+            "dictValue": "盗窃自行车"
+        },
+        {
+            "dictKey": "050234",
+            "dictValue": "盗窃电缆线案"
+        },
+        {
+            "dictKey": "050237",
+            "dictValue": "盗窃牲畜"
+        },
+        {
+            "dictKey": "050240",
+            "dictValue": "扒窃"
+        },
+        {
+            "dictKey": "050300",
+            "dictValue": "诈骗"
+        },
+        {
+            "dictKey": "050102",
+            "dictValue": "挡路抢劫"
+        },
+        {
+            "dictKey": "050400",
+            "dictValue": "抢夺"
+        },
+        {
+            "dictKey": "040103",
+            "dictValue": "故意伤害"
+        },
+        {
+            "dictKey": "040101",
+            "dictValue": "故意杀人案"
+        },
+        {
+            "dictKey": "040105",
+            "dictValue": "强奸案"
+        },
+        {
+            "dictKey": "040107",
+            "dictValue": "强制猥亵、侮辱妇女"
+        }
+    ]
+}

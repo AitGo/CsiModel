@@ -1,0 +1,92 @@
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/model/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'Droitech'
+            keyPassword 'Droitech'
+            storeFile file('../ReleaseKeyStore.jks')
+            storePassword 'Droitech'
+        }
+        release {
+            keyAlias 'Droitech'
+            keyPassword 'Droitech'
+            storeFile file('../ReleaseKeyStore.jks')
+            storePassword 'Droitech'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug //签名
+            signingConfig signingConfigs.release //签名
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            shrinkResources false
+        }
+
+        release {
+            signingConfig signingConfigs.release //签名
+            buildConfigField "boolean", "LOG_DEBUG", "false"   // 不显示Log
+            minifyEnabled false //混淆
+            shrinkResources false  // 移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    greendao {
+        schemaVersion 1 //数据库版本号
+        daoPackage 'com.liany.csiserverapp.dao.database.greenDao.db'
+        // 设置DaoMaster、DaoSession、Dao 包名
+        targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+        generateTests false //设置为true以自动生成单元测试。
+        targetGenDirTests 'src/main/java' //应存储生成的单元测试的基本目录。默认为 src / androidTest / java。
+    }
+
+}
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor deps.arouter_compiler
+    implementation project(':lib_common')
+//    compileOnly files('libs\\ksoap2-android-assembly-3.5.0-jar-with-dependencies.jar')
+    annotationProcessor deps.andServer.processor
+}

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <include layout="@layout/layout_titlebar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:gravity="center"
+                android:text="物品照片"
+                android:textSize="14sp"
+                android:textColor="#FF999999" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_collected_photo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/white"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/gray"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="物证编号"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/bg_et_underline_selector">
+                    <TextView
+                        android:id="@+id/tv_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="left|center"
+                        android:layout_weight="1"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginBottom="6dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="8dp"
+                        android:clickable="true"
+                        android:textColor="#ff3e3e3e"
+                        android:textSize="16sp"
+                        />
+                    <ImageButton
+                        android:id="@+id/iv_scan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@mipmap/scanblack"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="8dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="物证名称"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/material_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:hint="姓名"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="提取部位"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/collected_position"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="提取方法"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="0dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"
+                        android:visibility="visible"/>
+                </LinearLayout>
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/tv_collected_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/et_collected_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:hint="姓名"
+                    android:singleLine="true"
+                    android:layout_marginRight="16dp"
+                    android:visibility="visible"/>
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/method_question"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/question"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=" 提取人 "
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="24dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/collected_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="提取数量"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"/>
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/collected_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="提取日期"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="0dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:id="@+id/tv_collected_date"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="备注"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="0dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"/>
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/remark"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

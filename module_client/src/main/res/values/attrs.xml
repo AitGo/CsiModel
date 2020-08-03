@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="TreeViewList">
+	    <attr name="collapsible" format="boolean" />
+		<attr name="src_expanded" format="reference|color" />
+		<attr name="src_collapsed" format="reference|color" />
+        <attr name="indent_width" format="dimension" />
+        <attr name="handle_trackball_press" format="boolean" />
+		<attr name="indicator_gravity">
+			<!-- Push object to the top of its container, not changing its size. -->
+			<flag name="top" value="0x30" />
+			<!-- Push object to the bottom of its container, not changing its size. -->
+			<flag name="bottom" value="0x50" />
+			<!-- Push object to the left of its container, not changing its size. -->
+			<flag name="left" value="0x03" />
+			<!-- Push object to the right of its container, not changing its size. -->
+			<flag name="right" value="0x05" />
+			<!-- Place object in the vertical center of its container, not changing its size. -->
+			<flag name="center_vertical" value="0x10" />
+			<!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+			<flag name="fill_vertical" value="0x70" />
+			<!-- Place object in the horizontal center of its container, not changing its size. -->
+			<flag name="center_horizontal" value="0x01" />
+			<!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+			<flag name="fill_horizontal" value="0x07" />
+			<!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+			<flag name="center" value="0x11" />
+			<!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+			<flag name="fill" value="0x77" />
+			<!-- Additional option that can be set to have the top and/or bottom edges of the child clipped to its container's bounds.
+				The clip will be based on the vertical gravity: a top gravity will clip the bottom edge, a bottom gravity will clip the top
+				edge, and neither will clip both edges. -->
+			<flag name="clip_vertical" value="0x80" />
+			<!-- Additional option that can be set to have the left and/or right edges of the child clipped to its container's bounds.
+				The clip will be based on the horizontal gravity: a left gravity will clip the right edge, a right gravity will clip the
+				left edge, and neither will clip both edges. -->
+			<flag name="clip_horizontal" value="0x08" />
+		</attr>
+        <attr name="indicator_background" format="reference|color" />
+        <attr name="row_background" format="reference|color" />
+	</declare-styleable>
+
+	<declare-styleable name="LauncherPreference">
+		<attr name="preferenceBackground" format="reference" />
+		<attr name="preferenceIcon" format="reference" />
+		<attr name="PreferencetitleColor" format="color" />
+		<attr name="preferenceTitle" format="string" />
+		<attr name="PreferenceSummaryColor" format="color" />
+		<attr name="preferenceSummary" format="string" />
+		<attr name="showSwitch" format="boolean" />
+		<attr name="hideDivider" format="boolean" />
+		<attr name="rightImage" format="integer">
+			<enum name="redDot" value="0" />
+			<enum name="showSwitch" value="1" />
+			<enum name="rightArrow" value="2" />
+			<enum name="showSpinner" value="3" />
+		</attr>
+	</declare-styleable>
+
+    <declare-styleable name="EnhancedTextView">
+        <attr name="drawableLeftWidth" format="dimension" />
+        <attr name="drawableLeftHeight" format="dimension" />
+        <attr name="drawableRightWidth" format="dimension" />
+        <attr name="drawableRightHeight" format="dimension" />
+        <attr name="drawableTopWidth" format="dimension" />
+        <attr name="drawableTopHeight" format="dimension" />
+        <attr name="drawableBottomWidth" format="dimension" />
+        <attr name="drawableBottomHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="Switch">
+        <attr name="lineCheckedColor" format="color"></attr>
+        <attr name="lineUnCheckedColor" format="color"></attr>
+        <attr name="lineHeight" format="dimension"></attr>
+        <attr name="innerCheckedBroderColor" format="color" />
+        <attr name="innerUnCheckedBroderColor" format="color" />
+        <attr name="innerBroderWidth" format="dimension" />
+        <attr name="btnCheckedColor" format="color" />
+        <attr name="btnUnCheckedColor" format="color" />
+        <attr name="innerPadding" format="dimension" />
+    </declare-styleable>
+
+	<declare-styleable name="LoadingButton">
+		<attr name="pbText" format="string"/>
+		<attr name="pbLoadingText" format="string"/>
+		<attr name="pbTextSize" format="dimension"/>
+		<attr name="pbTextColor" format="color|reference"/>
+		<attr name="pbProgressColor" format="color|reference"/>
+	</declare-styleable>
+
+	<declare-styleable name="ClearableEditText">
+		<attr name="hint" format="string"/>
+	</declare-styleable>
+
+	<declare-styleable name="BadgeView">
+		<!-- 徽章背景色 -->
+		<attr name="badge_bgColor" format="reference|color" />
+		<!-- 徽章文本的颜色 -->
+		<attr name="badge_textColor" format="reference|color" />
+		<!-- 徽章文本字体大小 -->
+		<attr name="badge_textSize" format="reference|dimension" />
+		<!-- 徽章背景与宿主控件上下边缘间距离 -->
+		<attr name="badge_verticalMargin" format="reference|dimension" />
+		<!-- 徽章背景与宿主控件左右边缘间距离 -->
+		<attr name="badge_horizontalMargin" format="reference|dimension" />
+		<!-- 徽章文本边缘与徽章背景边缘间的距离 -->
+		<attr name="badge_padding" format="reference|dimension" />
+		<!-- 徽章在宿主控件中的位置 -->
+		<attr name="badge_gravity" format="enum">
+			<enum name="rightTop" value="0" />
+			<enum name="rightCenter" value="1" />
+			<enum name="rightBottom" value="2" />
+		</attr>
+		<!-- 是否可以拖拽删除徽章 -->
+		<attr name="badge_dragable" format="boolean" />
+		<!-- 拖拽徽章超出轨迹范围后，再次放回到轨迹范围时，是否恢复轨迹 -->
+		<attr name="badge_isResumeTravel" format="boolean" />
+		<!-- 徽章描边宽度 -->
+		<attr name="badge_borderWidth" format="reference|dimension" />
+		<!-- 徽章描边颜色 -->
+		<attr name="badge_borderColor" format="reference|color" />
+		<!-- 触发开始拖拽徽章事件的扩展触摸距离 -->
+		<attr name="badge_dragExtra" format="reference|dimension" />
+	</declare-styleable>
+
+	<declare-styleable name="CircleImageView">
+		<attr name="border_width" format="dimension" />
+		<attr name="border_color" format="color" />
+	</declare-styleable>
+	<declare-styleable name="CamListPreference">
+		<attr name="key" format="string" />
+		<attr name="title" format="string" />
+		<attr name="icon" format="reference" />
+		<attr name="defaultValue" format="string|reference" />
+		<attr name="entries" format="reference" />
+		<attr name="entryValues" format="reference" />
+		<attr name="entryIcons" format="reference" />
+	</declare-styleable>
+
+	<declare-styleable name="OvonicSeekBar">
+		<attr name="normal_background" format="color|reference"/>
+		<attr name="progress_background" format="color|reference"/>
+		<attr name="middle_shape" format="color|reference"/>
+		<attr name="thumb" format="color|reference"/>
+		<attr name="position" format="float"/>
+		<attr name="value_start" format="float"/>
+		<attr name="value_end" format="float"/>
+	</declare-styleable>
+</resources>

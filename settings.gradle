@@ -1,0 +1,2 @@
+include ':module_client', ':module_server', ':module_app', ':lib_common', ':ocr_ui'
+rootProject.name='CsiModel'

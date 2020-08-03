@@ -1,0 +1,22 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "dictKey": "1",
+            "dictValue": "单人"
+        },
+        {
+            "dictKey": "3",
+            "dictValue": "两人"
+        },
+        {
+            "dictKey": "2",
+            "dictValue": "多人"
+        },
+        {
+            "dictKey": "4",
+            "dictValue": "不确定"
+        }
+    ]
+}

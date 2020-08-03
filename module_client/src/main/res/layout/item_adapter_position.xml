@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/gray_bg">
+
+    <ImageView
+        android:id="@+id/iv_position"
+        android:layout_width="181dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_centerHorizontal="true"/>
+
+    <com.liany.csiclient.widget.ClearableEditText
+        android:id="@+id/et_photo_des"
+        android:layout_width="181dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/iv_position"
+        android:layout_marginTop="5dp"
+        app:hint="添加照片描述"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

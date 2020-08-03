@@ -1,0 +1,18 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "crimeCharacter": "其他盗窃案件",
+            "crimeCharacterKey": "199",
+            "crimeEntrance": "门",
+            "crimeEntranceKey": "10",
+            "crimeExport": "门",
+            "crimeExportKey": "10",
+            "crimeMeans": "顺手牵羊",
+            "crimeMeansKey": "4907",
+            "intrusiveMethod": "其它侵入手段",
+            "intrusiveMethodKey": "2900"
+        }
+    ]
+}

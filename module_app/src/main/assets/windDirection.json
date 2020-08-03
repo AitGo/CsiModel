@@ -1,0 +1,56 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "amapValue": "无风向",
+            "dictValue": "无风",
+            "dictKey": "09"
+        },
+        {
+            "amapValue": "旋转不定",
+            "dictValue": "其他",
+            "dictKey": "99"
+        },
+        {
+            "amapValue": "东",
+            "dictValue": "东风",
+            "dictKey": "01"
+        },
+        {
+            "amapValue": "南",
+            "dictValue": "南风",
+            "dictKey": "02"
+        },
+        {
+            "amapValue": "西",
+            "dictValue": "西风",
+            "dictKey": "03"
+        },
+        {
+            "amapValue": "北",
+            "dictValue": "北风",
+            "dictKey": "04"
+        },
+        {
+            "amapValue": "东南",
+            "dictValue": "东南风",
+            "dictKey": "05"
+        },
+        {
+            "amapValue": "西南",
+            "dictValue": "西南风",
+            "dictKey": "06"
+        },
+        {
+            "amapValue": "西北",
+            "dictValue": "西北风",
+            "dictKey": "07"
+        },
+        {
+            "amapValue": "东北",
+            "dictValue": "东北风",
+            "dictKey": "08"
+        }
+    ]
+}

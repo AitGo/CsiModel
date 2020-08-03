@@ -1,0 +1,42 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "crimeCharacter": "攀爬入室盗窃案件",
+            "crimeCharacterKey": "102",
+            "crimeEntrance": "窗",
+            "crimeEntranceKey": "20",
+            "crimeExport": "窗",
+            "crimeExportKey": "20",
+            "crimeMeans": "其他作案手段",
+            "crimeMeansKey": "9000",
+            "intrusiveMethod": "窗口钻入",
+            "intrusiveMethodKey": "2202"
+        },
+        {
+            "crimeCharacter": "技术性开锁盗窃",
+            "crimeCharacterKey": "103",
+            "crimeEntrance": "门",
+            "crimeEntranceKey": "10",
+            "crimeExport": "门",
+            "crimeExportKey": "10",
+            "crimeMeans": "其他作案手段",
+            "crimeMeansKey": "9000",
+            "intrusiveMethod": "其他从门侵入",
+            "intrusiveMethodKey": "2199"
+        },
+        {
+            "crimeCharacter": "插片入室盗窃案件",
+            "crimeCharacterKey": "110",
+            "crimeEntrance": "门",
+            "crimeEntranceKey": "10",
+            "crimeExport": "门",
+            "crimeExportKey": "10",
+            "crimeMeans": "插片开锁",
+            "crimeMeansKey": "4108",
+            "intrusiveMethod": "其他从门侵入",
+            "intrusiveMethodKey": "2199"
+        }
+    ]
+}

@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@color/white">
+
+
+    <include layout="@layout/layout_titlebar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_evidence_pic"
+                android:layout_width="146dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/evidenceTextLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="手印痕迹"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:id="@+id/evidence"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/other_evidence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="姓名"
+                    android:singleLine="true"
+                    android:layout_marginRight="16dp"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="物证名称"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/evidence_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:hint="姓名"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="遗留部位"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/legacy_site"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="基本特征"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="0dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"/>
+                </LinearLayout>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/basice_feature"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff3e3e3e"
+                    android:layout_marginRight="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/inferLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF"
+                android:visibility="gone">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="工具推断"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:id="@+id/infer"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="提取方法"
+                        android:textSize="14sp"
+                        android:textColor="#FF999999"
+                        android:layout_marginRight="0dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"
+                        android:visibility="invisible"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:id="@+id/method"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+
+                <com.liany.csiclient.widget.ClearableEditText
+                    android:id="@+id/other_method"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:hint="姓名"
+                    android:singleLine="true"
+                    android:layout_marginRight="16dp"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/method_question"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:background="@mipmap/question"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="提取时间"
+                        android:textColor="#FF999999"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="16dp"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="left|center"
+                        android:paddingLeft="10dp"
+                        android:textSize="16sp"
+                        android:textColor="#ff3e3e3e"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_et_underline_selector"/>
+
+                    <Button
+                        android:id="@+id/time_button"
+                        android:layout_width="13dp"
+                        android:layout_height="7dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_gravity="center"
+                        android:background="@mipmap/dropdown"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="15dp"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text=" 提取人 "
+                        android:textSize="14sp"
+                        android:textColor="#FF999999" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:textColor="#FFFF0000"
+                        android:layout_marginRight="24dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="left|center"
+                    android:id="@+id/getPeople"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginRight="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="8dp"
+                    android:clickable="true"
+                    android:textColor="#ff3e3e3e"
+                    android:textSize="16sp"
+                    android:drawableRight="@mipmap/dropdown"
+                    android:background="@drawable/bg_et_underline_selector"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>
