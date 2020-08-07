@@ -11,6 +11,7 @@ import com.liany.csiserverapp.diagnose.sysTechnician;
 import com.liany.csiserverapp.diagnose.sysUser;
 import com.liany.csiserverapp.network.response.Response;
 import com.liany.csiserverapp.network.webservice.NetWorkUtils;
+import com.liany.csiserverapp.network.webservice.WebServiceUtils;
 import com.liany.csiserverapp.utils.FileUtils;
 import com.liany.csiserverapp.utils.GsonUtils;
 import com.liany.csiserverapp.utils.LogUtils;
@@ -52,97 +53,54 @@ public class UserService {
      */
     public static String updateDB(Context mContext, String url) {
         try {
-        LogUtils.e("updateUserDB start");
-        if(StringUtils.checkString(url)) {
-            SPUtils.setParam(mContext, Constants.sp_url,url);
-        }
-        //同步数据开始时+1，为开始同步状态
-        isUpdate = 1;
-        //开始同步字典等数据
-        NetWorkUtils.updateDB(mContext, Constants.method_loadUserInfo, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                // 解析json同步数据库
-                LogUtils.e("updateUserDB UserInfo " + result);
-                if(result != null && !result.equals("")) {
-                    Response<List<sysUser>> response = GsonUtils.fromJsonArray(result, sysUser.class);
-                    List<sysUser> users = response.getData();
-                    UserDb.deleteSysUser();
-                    UserDb.insertSysUser(users);
-                    isUpdate += 1;
-                }
+            LogUtils.e("updateUserDB start");
+            if(StringUtils.checkString(url)) {
+                SPUtils.setParam(mContext, Constants.sp_url,url);
             }
+            //同步数据开始时+1，为开始同步状态
+            isUpdate = 1;
+            //开始同步字典等数据
+            try {
+                //人员
+                String userResult = WebServiceUtils.getDBInfo(((String) SPUtils.getParam(mContext, Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""), Constants.method_loadUserInfo);
+                LogUtils.e(userResult + "");
+                Response<List<sysUser>> response = GsonUtils.fromJsonArray(userResult, sysUser.class);
+                List<sysUser> users = response.getData();
+                UserDb.deleteSysUser();
+                UserDb.insertSysUser(users);
 
-            @Override
-            public void onError(Throwable e) {
-                LogUtils.e("updateUserDB UserInfo onError " + e.getMessage());
-            }
-        });
-        NetWorkUtils.updateDB(mContext, Constants.method_loadTechnicianInfo, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                // 解析json同步数据库
-                LogUtils.e("updateTechDB TechnicianInfo " + result);
-                if(result != null && !result.equals("")) {
-                    Response<List<sysTechnician>> response = GsonUtils.fromJsonArray(result, sysTechnician.class);
-                    List<sysTechnician> technicians = response.getData();
+                //技术
+                String techResult = WebServiceUtils.getDBInfo(((String) SPUtils.getParam(mContext, Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""), Constants.method_loadTechnicianInfo);
+                LogUtils.e("updateTechDB TechnicianInfo " + techResult);
+                if(techResult != null && !techResult.equals("")) {
+                    Response<List<sysTechnician>> techResponse = GsonUtils.fromJsonArray(techResult, sysTechnician.class);
+                    List<sysTechnician> technicians = techResponse.getData();
                     UserDb.deleteSysTechnician();
                     UserDb.insertSysTechnician(technicians);
                     isUpdate += 1;
                 }
-            }
 
-            @Override
-            public void onError(Throwable e) {
-                LogUtils.e("updateUserDB TechnicianInfo onError " + e.getMessage());
-            }
-        });
-        NetWorkUtils.updateDB(mContext, Constants.method_loadOrganInfo, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                // 解析json同步数据库
-                LogUtils.e("updateOrganDB OrganInfo " + result);
-                if(result != null && !result.equals("")) {
-                    Response<List<sysOrgan>> response = GsonUtils.fromJsonArray(result, sysOrgan.class);
-                    List<sysOrgan> organs = response.getData();
+                String organResult = WebServiceUtils.getDBInfo(((String) SPUtils.getParam(mContext, Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""), Constants.method_loadOrganInfo);
+                LogUtils.e("updateOrganDB OrganInfo " + organResult);
+                if(organResult != null && !organResult.equals("")) {
+                    Response<List<sysOrgan>> organResponse = GsonUtils.fromJsonArray(organResult, sysOrgan.class);
+                    List<sysOrgan> organs = organResponse.getData();
                     UserDb.deleteSysOrgan();
                     UserDb.insertSysOrgan(organs);
                     isUpdate += 1;
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                return GsonUtils.faildJson(500, e.getMessage());
             }
-
-            @Override
-            public void onError(Throwable e) {
-                LogUtils.e("updateUserDB OrganInfo onError " + e.getMessage());
-            }
-        });
-//        NetWorkUtils.updateDB(mContext, Constants.method_loadDictInfo, new NetWorkUtils.Callback() {
-//            @Override
-//            public void onNext(String result) {
-//                // 解析json同步数据库
-//                LogUtils.e("updateDictDB DictInfo " + result);
-//                if(result != null && !result.equals("")) {
-//                    Response<List<sysDict>> response = GsonUtils.fromJsonArray(result, sysDict.class);
-//                    List<sysDict> dicts = response.getData();
-//                    UserDb.deleteSysDict();
-//                    UserDb.insertSysDict(dicts);
-//                    isUpdate += 1;
-//                }
-//            }
-//
-//            @Override
-//            public void onError(Throwable e) {
-//                LogUtils.e("updateUserDB DictInfo onError " + e.getMessage());
-//            }
-//        });
-        String json = FileUtils.ReadAssetsFile(mContext, "sysDict.json");
-        Response<List<sysDict>> response = GsonUtils.fromJsonArray(json, sysDict.class);
-        UserDb.deleteSysDict();
-        UserDb.insertSysDict(response.getData());
-        return GsonUtils.successJson("同步中");
+            String json = FileUtils.ReadAssetsFile(mContext, "sysDict.json");
+            Response<List<sysDict>> response = GsonUtils.fromJsonArray(json, sysDict.class);
+            UserDb.deleteSysDict();
+            UserDb.insertSysDict(response.getData());
+            return GsonUtils.successJson("同步成功");
         }catch (Exception e) {
             e.printStackTrace();
-            return GsonUtils.successJson("同步中");
+            return GsonUtils.faildJson(500,e.getMessage());
         }
     }
 

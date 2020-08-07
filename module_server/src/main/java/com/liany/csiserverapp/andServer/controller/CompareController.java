@@ -136,63 +136,25 @@ public class CompareController {
     }
 
     /**
-     * 开始获取比对结果
-     * @param crimeId 现场id
-     * @param state 比对类型 1:现场比对，2:事主比对 3:足迹 4:人脸
-     * @return
-     */
-    @PostMapping("/startCompareResult")
-    public String startCompareResult(HttpRequest request, Context mContext, @RequestParam("crimeId") String crimeId, @RequestParam("state") String state) {
-//        LogUtils.i(RequestUtils.getUser(request) + ":" + "开始获取比对结果");
-        if(state.equals("3")) {
-            return CompareService.startFootCompareResult(mContext,crimeId,state);
-        }else if(state.equals("4")) {
-            return CompareService.startFaceCompareResult(mContext,crimeId,state);
-        } else {
-            return CompareService.startFingerCompareResult(mContext,crimeId,state);
-        }
-    }
-
-    /**
      * 获取比对结果
      * @param crimeId 现场id
-     * @param state 比对类型 1:现场比对，2:事主比对，3:足迹比对 4:人脸
+     * @param state 比对类型 1:现场比对，2:事主比对 3:足迹 4:人脸
      * @return
      */
     @PostMapping("/getCompareResult")
     public String getCompareResult(HttpRequest request, Context mContext, @RequestParam("crimeId") String crimeId, @RequestParam("state") String state) {
-//        LogUtils.i(RequestUtils.getUser(request) + ":" + "获取比对结果");
-        return CompareService.getCompareResult(crimeId,state);
-    }
-
-    /**
-     * 开始获取全部比对结果
-     * @param userId 人员id
-     * @param state 比对类型 1:现场比对，2:事主比对 3:足迹 4:人脸
-     * @return
-     */
-    @PostMapping("/startAllCompareResult")
-    public String startAllCompareResult(HttpRequest request, Context mContext, @RequestParam("userId") String userId, @RequestParam("state") String state) {
-//        LogUtils.i(RequestUtils.getUser(request) + ":" + "开始获取比对结果");
-        if(state.equals("3")) {
-            return CompareService.startAllFootCompareResult(mContext,userId,state);
-        }else if(state.equals("4")) {
-            return CompareService.startAllFaceCompareResult(mContext,userId,state);
-        }else {
-            return CompareService.startAllCompareResult(mContext,userId,state);
-        }
+        return CompareService.getCompareResult(mContext,crimeId,state);
     }
 
     /**
      * 获取全部比对结果
-     * @param userName 人员名称
-     * @param state 比对类型 1:现场指纹比对，2:事主比对，3:足迹比对 4:人脸
+     * @param userId 人员id
+     * @param state 比对类型 1:现场比对，2:事主比对 3:足迹 4:人脸
      * @return
      */
     @PostMapping("/getAllCompareResult")
-    public String getAllCompareResult(HttpRequest request, Context mContext, @RequestParam("userName") String userName, @RequestParam("state") String state) {
-//        LogUtils.i(RequestUtils.getUser(request) + ":" + "获取比对结果");
-        return CompareService.getAllCompareResult(userName,state);
+    public String startAllCompareResult(HttpRequest request, Context mContext, @RequestParam("userId") String userId, @RequestParam("state") String state) {
+        return CompareService.getAllCompareResult(mContext, userId, state);
     }
 
     /**

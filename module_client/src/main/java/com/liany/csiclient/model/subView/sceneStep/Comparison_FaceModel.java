@@ -27,51 +27,6 @@ public class Comparison_FaceModel implements Comparison_FaceContract.Model {
         this.mContext = mContext;
     }
 
-
-    @Override
-    public void startComparisonData(CrimeItem crimeItem, String state, callBack callBack) {
-        OkGo.<String>post( Constants.ipAddress + "/compare/startCompareResult")
-                .tag(this)
-                .params("crimeId", crimeItem.getId())
-                .params("state",state)
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        LogUtils.e(response.body());
-                        callBack.onSuccess(response.body());
-                    }
-
-                    @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                        LogUtils.e(response.getException().getMessage());
-                        callBack.onFail(response.getException().getMessage());
-                    }
-                });
-    }
-
-    @Override
-    public void startAllComparisonData(String state, callBack callBack) {
-        OkGo.<String>post( Constants.ipAddress + "/compare/startAllCompareResult")
-                .tag(this)
-                .params("userId", (String) SPUtils.getParam(mContext, Constants.sp_userId,""))
-                .params("state",state)
-                .execute(new StringCallback() {
-                    @Override
-                    public void onSuccess(Response<String> response) {
-                        LogUtils.e(response.body());
-                        callBack.onSuccess(response.body());
-                    }
-
-                    @Override
-                    public void onError(Response<String> response) {
-                        super.onError(response);
-                        LogUtils.e(response.getException().getMessage());
-                        callBack.onFail(response.getException().getMessage());
-                    }
-                });
-    }
-
     @Override
     public void getComparisonData(CrimeItem crimeItem, String state, callBack callBack) {
         OkGo.<String>post( Constants.ipAddress + "/compare/getCompareResult")
@@ -98,7 +53,7 @@ public class Comparison_FaceModel implements Comparison_FaceContract.Model {
     public void getAllComparisonData(String state, callBack callBack) {
         OkGo.<String>post( Constants.ipAddress + "/compare/getAllCompareResult")
                 .tag(this)
-                .params("userName", (String) SPUtils.getParam(mContext, Constants.sp_userName,""))
+                .params("userId", (String) SPUtils.getParam(mContext, Constants.sp_userId,""))
                 .params("state", state)
                 .execute(new StringCallback() {
                     @Override

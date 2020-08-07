@@ -47,16 +47,24 @@ public class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void updateDB() {
+        ProgressUtils.showProgressDialog(mContext,"正在同步数据");
         String url = (String) SPUtils.getParam(mContext, Constants.sp_url, "");
         model.updateDB(url,new callBack() {
             @Override
             public void onSuccess(String date) {
-
+                ProgressUtils.dismissProgressDialog();
+                Response<String> response = GsonUtils.fromJsonObject(date, String.class);
+                if(response.getCode() == 200) {
+                    ToastUtils.showShort(response.getData());
+                }else {
+                    ToastUtils.showShort("同步错误:" + response.getMsg());
+                }
             }
 
             @Override
             public void onFail(String msg) {
-
+                ProgressUtils.dismissProgressDialog();
+                ToastUtils.showShort("同步失败:" + msg);
             }
         });
     }

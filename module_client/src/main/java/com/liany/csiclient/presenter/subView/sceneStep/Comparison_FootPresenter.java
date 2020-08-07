@@ -36,42 +36,20 @@ public class Comparison_FootPresenter implements Comparison_FootContract.Present
     @Override
     public void getComparisonResult(CrimeItem crimeItem) {
         ProgressUtils.showProgressDialog(mContext,"正在获取比对结果");
-        model.startComparisonData(crimeItem,"3", new callBack() {
+        model.getComparisonData(crimeItem,"3", new callBack() {
             @Override
             public void onSuccess(String date) {
+                ProgressUtils.dismissProgressDialog();
                 Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(date, ComparePhoto.class);
                 if(response.getCode() == 200) {
-                    ProgressUtils.dismissProgressDialog();
                     view.updateEvidence(response.getData());
-                }else {
-                    try{
-                        Thread.sleep(3000);
-                        model.getComparisonData(crimeItem,"3", new callBack() {
-                            @Override
-                            public void onSuccess(String date) {
-                                ProgressUtils.dismissProgressDialog();
-                                Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(date, ComparePhoto.class);
-                                if(response.getCode() == 200) {
-                                    view.updateEvidence(response.getData());
-                                }
-                            }
-
-                            @Override
-                            public void onFail(String msg) {
-                                ProgressUtils.dismissProgressDialog();
-                                ToastUtils.showLong("获取比对结果错误:" + msg);
-                            }
-                        });
-                    }catch (Exception e ){
-
-                    }
                 }
             }
 
             @Override
             public void onFail(String msg) {
                 ProgressUtils.dismissProgressDialog();
-                ToastUtils.showLong("服务器获取比对结果错误:" + msg);
+                ToastUtils.showLong("获取比对结果错误:" + msg);
             }
         });
     }
@@ -79,37 +57,15 @@ public class Comparison_FootPresenter implements Comparison_FootContract.Present
     @Override
     public void getCompareData() {
         ProgressUtils.showProgressDialog(mContext,"正在获取比对结果");
-        model.startAllComparisonData("3", new callBack() {
+        model.getAllComparisonData("3", new callBack() {
             @Override
             public void onSuccess(String date) {
+                ProgressUtils.dismissProgressDialog();
                 Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(date, ComparePhoto.class);
                 if(response.getCode() == 200) {
-                    ProgressUtils.dismissProgressDialog();
                     view.updateEvidence(response.getData());
                 }else {
-                    try{
-                        Thread.sleep(3000);
-                        model.getAllComparisonData("3", new callBack() {
-                            @Override
-                            public void onSuccess(String date) {
-                                ProgressUtils.dismissProgressDialog();
-                                Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(date, ComparePhoto.class);
-                                if(response.getCode() == 200) {
-                                    view.updateEvidence(response.getData());
-                                }else {
-                                    ToastUtils.showLong("服务器获取比对结果错误:" + response.getMsg());
-                                }
-                            }
-
-                            @Override
-                            public void onFail(String msg) {
-                                ProgressUtils.dismissProgressDialog();
-                                ToastUtils.showLong("服务器获取比对结果错误:" + msg);
-                            }
-                        });
-                    }catch (Exception e ){
-
-                    }
+                    ToastUtils.showLong("服务器获取比对结果错误:" + response.getMsg());
                 }
             }
 

@@ -19,10 +19,12 @@ import com.liany.csiserverapp.diagnose.sysOrgan;
 import com.liany.csiserverapp.diagnose.sysUser;
 import com.liany.csiserverapp.network.response.Response;
 import com.liany.csiserverapp.network.webservice.NetWorkUtils;
+import com.liany.csiserverapp.network.webservice.WebServiceUtils;
 import com.liany.csiserverapp.utils.Compare;
 import com.liany.csiserverapp.utils.FileUtils;
 import com.liany.csiserverapp.utils.GsonUtils;
 import com.liany.csiserverapp.utils.LogUtils;
+import com.liany.csiserverapp.utils.SPUtils;
 import com.liany.csiserverapp.utils.StringUtils;
 import com.liany.csiserverapp.utils.ZipUtils;
 import com.liany.csiserverapp.diagnose.CrimeItem;
@@ -1551,211 +1553,100 @@ public class CompareService {
         return GsonUtils.successJson("提交比对中");
     }
 
-    public static String startFingerCompareResult(Context mContext,String crimeId,String state) {
+    public static String getCompareResult(Context mContext, String crimeId, String state) {
         int type = 1;
+        String methodName = "";
         if(state.equals("1")) {
             type = Constants.TYPE_FINGER_EVIDENCE;
-        }else if(state.equals("2")) {
-            type = Constants.TYPE_FINGER_PEOPLE;
-        }
-        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultComparePhotoByCrimeId(crimeId,type);
-        //判断是否还有比对没有获取最终结果
-        if (comparePhotos.size() > 0) {
-            int finalType = type;
-            NetWorkUtils.getFingerTaskResult(mContext, "getFingerTaskResult", crimeId, new NetWorkUtils.Callback() {
-                @Override
-                public void onNext(String result) {
-                    if(StringUtils.checkString(result)) {
-                        Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
-                        if(response.getCode() == 0) {
-                            //返回数据成功，解析结果，插入comparePhoto
-                            CompareDB.updateCompareFingerPhoto(response.getData(), finalType);
-                        }
-                    }
-                }
-
-                @Override
-                public void onError(Throwable e) {
-
-                }
-            });
-        }else {
-            List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByCrimeId(crimeId, type);
-            return GsonUtils.successJson(comparePhotoList);
-        }
-        return GsonUtils.faildJson(500,"正在加载");
-    }
-
-    public static String getCompareResult(String crimeId,String state) {
-        int type = 1;
-        if(state.equals("1")) {
-            type = Constants.TYPE_FINGER_EVIDENCE;
+            methodName = "getFingerTaskResult";
         }else if(state.equals("2")) {
             type = Constants.TYPE_FINGER_PEOPLE;
         }else if(state.equals("3")) {
             type = Constants.TYPE_FOOT_EVIDENCE;
+            methodName = "getFootTaskResult";
         }else if(state.equals("4")) {
             type = Constants.TYPE_FACE_EVIDENCE;
+            methodName = "getFaceTaskResult";
         }
-        List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByCrimeId(crimeId,type);
-        return GsonUtils.successJson(comparePhotoList);
-    }
-
-    public static String startFootCompareResult(Context mContext, String crimeId, String state) {
-        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultFootComparePhotoByCrimeId(crimeId,Constants.TYPE_FOOT_EVIDENCE);
+        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultFootComparePhotoByCrimeId(crimeId,type);
         if(comparePhotos.size() > 0) {
-            NetWorkUtils.getFootTaskResult(mContext, "getFootTaskResult", crimeId, new NetWorkUtils.Callback() {
-                @Override
-                public void onNext(String result) {
-                    if(StringUtils.checkString(result)) {
-                        Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
-                        if(response.getCode() == 0) {
-                            //返回数据成功，解析结果，插入comparePhoto
+            try {
+                String result = WebServiceUtils.getFingerTaskResult(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                        methodName, crimeId);
+                if(StringUtils.checkString(result)) {
+                    Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
+                    if(response.getCode() == 0) {
+                        //返回数据成功，解析结果，插入comparePhoto
+                        if(state.equals("1")) {
+                            CompareDB.updateCompareFingerPhoto(response.getData(), type);
+                        }else if(state.equals("3")) {
                             CompareDB.updateCompareFootPhoto(response.getData());
-                        }
-                    }
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                }
-            });
-        }else {
-            List<ComparePhoto> comparePhotoList = CompareDB.selectFootComparePhotoByCrimeId(crimeId, Constants.TYPE_FOOT_EVIDENCE);
-            return GsonUtils.successJson(comparePhotoList);
-        }
-        return GsonUtils.faildJson(500,"正在加载");
-    }
-
-    public static String startFaceCompareResult(Context mContext, String crimeId, String state) {
-        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultFaceCompareByCrimeId(crimeId,Constants.TYPE_FACE_EVIDENCE);
-        if(comparePhotos.size() > 0) {
-            NetWorkUtils.getFaceTaskResult(mContext, "getFaceTaskResult", crimeId, new NetWorkUtils.Callback() {
-                @Override
-                public void onNext(String result) {
-                    if(StringUtils.checkString(result)) {
-                        Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
-                        if(response.getCode() == 0) {
-                            //返回数据成功，解析结果，插入comparePhoto
-                            CompareDB.updateCompareFootPhoto(response.getData());
-                        }
-                    }
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                }
-            });
-        }else {
-            List<ComparePhoto> comparePhotoList = CompareDB.selectFootComparePhotoByCrimeId(crimeId, Constants.TYPE_FACE_EVIDENCE);
-            return GsonUtils.successJson(comparePhotoList);
-        }
-        return GsonUtils.faildJson(500,"正在加载");
-    }
-
-    public static String getAllCompareResult(String userName, String state) {
-        int type = 1;
-        if(state.equals("1")) {
-            type = Constants.TYPE_FINGER_EVIDENCE;
-        }else if(state.equals("2")) {
-            type = Constants.TYPE_FINGER_PEOPLE;
-        }else if(state.equals("3")) {
-            type = Constants.TYPE_FOOT_EVIDENCE;
-        }else if(state.equals("4")) {
-            type = Constants.TYPE_FACE_EVIDENCE;
-        }
-        List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByUserName(userName,type);
-        return GsonUtils.successJson(comparePhotoList);
-    }
-
-    public static String startAllFootCompareResult(Context mContext, String userId, String state) {
-        sysUser sysUser = UserDb.selectUserById(userId);
-        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultFootComparePhotoByUserName(sysUser.getTrueName(),Constants.TYPE_FOOT_EVIDENCE);
-        if(comparePhotos.size() > 0) {
-            NetWorkUtils.getFootTaskResult(mContext, "getFootTaskResult", userId, new NetWorkUtils.Callback() {
-                @Override
-                public void onNext(String result) {
-                    if(StringUtils.checkString(result)) {
-                        Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
-                        if(response.getCode() == 0) {
-                            //返回数据成功，解析结果，插入comparePhoto
-                            CompareDB.updateCompareFootPhoto(response.getData());
-                        }
-                    }
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                }
-            });
-        }else {
-            List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByUserName(sysUser.getTrueName(), Constants.TYPE_FOOT_EVIDENCE);
-            return GsonUtils.successJson(comparePhotoList);
-        }
-        return GsonUtils.faildJson(500,"正在加载");
-    }
-
-    public static String startAllFaceCompareResult(Context mContext, String userId, String state) {
-        sysUser sysUser = UserDb.selectUserById(userId);
-        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultFootComparePhotoByUserName(sysUser.getTrueName(),Constants.TYPE_FACE_EVIDENCE);
-        if(comparePhotos.size() > 0) {
-            NetWorkUtils.getFaceTaskResult(mContext, "getFaceTaskResult", userId, new NetWorkUtils.Callback() {
-                @Override
-                public void onNext(String result) {
-                    if(StringUtils.checkString(result)) {
-                        Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
-                        if(response.getCode() == 0) {
-                            //返回数据成功，解析结果，插入comparePhoto
+                        }else if(state.equals("4")) {
                             CompareDB.updateCompareFacePhoto(response.getData());
                         }
+                        List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByCrimeId(crimeId, type);
+                        return GsonUtils.successJson(comparePhotoList);
+                    }else {
+                        return GsonUtils.faildJson(500,response.getMsg());
                     }
                 }
-
-                @Override
-                public void onError(Throwable e) {
-                }
-            });
+            } catch (Exception e) {
+                e.printStackTrace();
+                return GsonUtils.faildJson(500,e.getMessage());
+            }
         }else {
-            List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByUserName(sysUser.getTrueName(), Constants.TYPE_FACE_EVIDENCE);
+            List<ComparePhoto> comparePhotoList = CompareDB.selectFootComparePhotoByCrimeId(crimeId, type);
             return GsonUtils.successJson(comparePhotoList);
         }
-        return GsonUtils.faildJson(500,"正在加载");
+        return GsonUtils.faildJson(500,"");
     }
 
-    public static String startAllCompareResult(Context mContext, String userId, String state) {
+    public static String getAllCompareResult(Context mContext, String userId, String state) {
         int type = 1;
+        String methodName = "";
         if(state.equals("1")) {
             type = Constants.TYPE_FINGER_EVIDENCE;
+            methodName = "getFingerTaskResult";
         }else if(state.equals("2")) {
             type = Constants.TYPE_FINGER_PEOPLE;
+        }else if(state.equals("3")) {
+            type = Constants.TYPE_FOOT_EVIDENCE;
+            methodName = "getFootTaskResult";
+        }else if(state.equals("4")) {
+            type = Constants.TYPE_FACE_EVIDENCE;
+            methodName = "getFaceTaskResult";
         }
         sysUser sysUser = UserDb.selectUserById(userId);
-        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultComparePhotoByUserName(sysUser.getTrueName(),type);
-        //判断是否还有比对没有获取最终结果
-        if (comparePhotos.size() > 0) {
-            int finalType = type;
-            NetWorkUtils.getFingerTaskResult(mContext, "getFingerTaskResult", userId, new NetWorkUtils.Callback() {
-                @Override
-                public void onNext(String result) {
-                    if(StringUtils.checkString(result)) {
-                        Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
-                        if(response.getCode() == 0) {
-                            //返回数据成功，解析结果，插入comparePhoto
-                            CompareDB.updateCompareFingerPhoto(response.getData(), finalType);
+        List<ComparePhoto> comparePhotos = CompareDB.selectNoResultFootComparePhotoByUserName(sysUser.getTrueName(), type);
+        if(comparePhotos.size() > 0) {
+            try {
+                String result = WebServiceUtils.getFootTaskResult(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                        methodName, userId);
+                if(StringUtils.checkString(result)) {
+                    Response<List<ComparePhoto>> response = GsonUtils.fromJsonArray(result, ComparePhoto.class);
+                    if(response.getCode() == 0) {
+                        //返回数据成功，解析结果，插入comparePhoto
+                        if(state.equals("1")) {
+                            CompareDB.updateCompareFingerPhoto(response.getData(), type);
+                        }else if(state.equals("3")) {
+                            CompareDB.updateCompareFootPhoto(response.getData());
+                        }else if(state.equals("4")) {
+                            CompareDB.updateCompareFacePhoto(response.getData());
                         }
+                        List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByUserName(sysUser.getTrueName(), type);
+                        return GsonUtils.successJson(comparePhotoList);
+                    }else {
+                        return GsonUtils.faildJson(500,response.getMsg());
                     }
                 }
-
-                @Override
-                public void onError(Throwable e) {
-
-                }
-            });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }else {
             List<ComparePhoto> comparePhotoList = CompareDB.selectComparePhotoByUserName(sysUser.getTrueName(), type);
             return GsonUtils.successJson(comparePhotoList);
         }
-        return GsonUtils.faildJson(500,"正在加载");
+        return GsonUtils.faildJson(500,"");
     }
 
     public static String getAllCompareFromService(Context mContext,String userId) {

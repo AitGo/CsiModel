@@ -51,7 +51,7 @@ public class SceneListComparisonEvidenceFingerModel implements SceneListComparis
     public void getCompareData(callBack callBack) {
         OkGo.<String>post( Constants.ipAddress + "/compare/getAllCompareResult")
                 .tag(this)
-                .params("userName", (String) SPUtils.getParam(mContext,Constants.sp_userName,""))
+                .params("userId", (String) SPUtils.getParam(mContext, Constants.sp_userId,""))
                 .params("state", "1")
                 .execute(new StringCallback() {
                     @Override

@@ -16,10 +16,6 @@ import java.util.List;
  */
 public interface Comparison_FootContract {
     interface Model {
-        void startComparisonData(CrimeItem crimeItem, String state, callBack callBack);
-
-        void startAllComparisonData(String state, callBack callBack);
-
         void getComparisonData(CrimeItem crimeItem, String state, callBack callBack);
 
         void getAllComparisonData(String state, callBack callBack);
