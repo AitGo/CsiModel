@@ -23,6 +23,7 @@ import com.liany.csiserverapp.diagnose.Photo;
 import com.liany.csiserverapp.diagnose.sysOrgan;
 import com.liany.csiserverapp.diagnose.sysUser;
 import com.liany.csiserverapp.network.webservice.NetWorkUtils;
+import com.liany.csiserverapp.network.webservice.WebServiceUtils;
 import com.liany.csiserverapp.utils.BitmapUtils;
 import com.liany.csiserverapp.utils.CollUtils;
 import com.liany.csiserverapp.utils.Compare;
@@ -241,29 +242,24 @@ public class SceneService {
                     //上传dwg文件，还是使用上传图片接口，为了区分dwg文件，在图片id中拼上"dwg
                     photoId += "dwg";
                 }
-                NetWorkUtils.uploadPic(mContext, Constants.method_uploadPic,
-                        path,
-                        photoId,
-                        photo.getCrimeId(),
-                        StringUtils.md5HashCode32(path), new NetWorkUtils.Callback() {
-                            @Override
-                            public void onNext(String result) {
-                                LogUtils.e("uploadPic " + result);
-                                if (result.equals("success")) {
-                                    photo.setIsUpload(Constants.UPLOAD_SUCCESS);
-                                    SceneDB.updatePhoto(photo);
-                                    uploadCrimeScenePic(mContext, item);
-                                } else {
+                try {
+                    String result = WebServiceUtils.uploadPic(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                            Constants.method_uploadPic,
+                            path,
+                            photoId,
+                            photo.getCrimeId(),
+                            StringUtils.md5HashCode32(path));
+                    LogUtils.e("uploadPic " + result);
+                    if (result.equals("success")) {
+                        photo.setIsUpload(Constants.UPLOAD_SUCCESS);
+                        SceneDB.updatePhoto(photo);
+                        uploadCrimeScenePic(mContext, item);
+                    } else {
 //                                XfUtils.startSpeak("上传现场错误，上传图片失败");
-                                }
-                            }
-
-                            @Override
-                            public void onError(Throwable e) {
-                                LogUtils.e("uploadPic " + e.getMessage());
-//                            XfUtils.startSpeak("上传现场错误，网络连接失败");
-                            }
-                        });
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }else {
                 photo.setIsUpload(Constants.UPLOAD_SUCCESS);
                 SceneDB.updatePhoto(photo);

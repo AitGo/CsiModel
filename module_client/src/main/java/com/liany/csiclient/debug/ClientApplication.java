@@ -7,6 +7,11 @@ import android.os.Build;
 import android.widget.Toast;
 
 //import com.kc.criminaiinvest.bean.ExecuteDraw;
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
+import com.kc.criminaiinvest.bean.ExecuteDraw;
 import com.liany.csiclient.base.Constants;
 import com.liany.csiclient.utils.CrashHandler;
 import com.liany.csiclient.utils.LogUtils;
@@ -39,14 +44,14 @@ public class ClientApplication extends BaseApplication {
         initYunhen();
         initZxing();
         initOkgo();
-//        initAccessTokenWithAkSk();
-//        initExecuteDraw();
+        initAccessTokenWithAkSk();
+        initExecuteDraw();
 //        initCrash();
     }
 
     private void initExecuteDraw() {
 //        ExecuteDraw.init(getApplication(),"Ha3Dius9dcNd8SVSA1nw");
-//        ExecuteDraw.init(this);
+        ExecuteDraw.init(this);
     }
 
     private void initYunhen() {
@@ -125,23 +130,23 @@ public class ClientApplication extends BaseApplication {
         Bugly.init(this, "ebd5c1d883", Constants.Bugly_isDebug);
     }
 
-//    /**
-//     * 用明文ak，sk初始化
-//     */
-//    private void initAccessTokenWithAkSk() {
-//        OCR.getInstance(getContext()).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
-//            @Override
-//            public void onResult(AccessToken result) {
-//                String token = result.getAccessToken();
-//            }
-//
-//            @Override
-//            public void onError(OCRError error) {
-//                error.printStackTrace();
-//                LogUtils.e("AK，SK方式获取token失败：" +  error.getMessage());
-//            }
-//        }, getContext(),  "PfnorjLM6o9yjAtgQfU4roIb", "g0TaOMC6xs7ErrUGh3qSWSydsVrX5Fnl");
-//    }
+    /**
+     * 用明文ak，sk初始化
+     */
+    private void initAccessTokenWithAkSk() {
+        OCR.getInstance(getContext()).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
+            @Override
+            public void onResult(AccessToken result) {
+                String token = result.getAccessToken();
+            }
+
+            @Override
+            public void onError(OCRError error) {
+                error.printStackTrace();
+                LogUtils.e("AK，SK方式获取token失败：" +  error.getMessage());
+            }
+        }, getContext(),  "PfnorjLM6o9yjAtgQfU4roIb", "g0TaOMC6xs7ErrUGh3qSWSydsVrX5Fnl");
+    }
 
     @Override
     public void onTerminate() {

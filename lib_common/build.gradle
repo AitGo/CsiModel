@@ -83,5 +83,6 @@ dependencies {
     api deps.arouter_api
     api files('libs\\app-release.aar')
     api files('libs\\easycollectlibrary-release.aar')
+    api project(path: ':ocr_ui')
 
 }

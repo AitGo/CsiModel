@@ -6,8 +6,13 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
 import com.kc.criminaiinvest.bean.ExecuteDraw;
 import com.liany.csiclient.utils.CrashHandler;
+import com.liany.csiclient.utils.LogUtils;
 import com.liany.csiserverapp.base.GreenDaoContext;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoMaster;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoSession;
@@ -45,6 +50,7 @@ public class AppApplication extends BaseApplication {
         initToast();
         initCrash();
         ExecuteDraw.init(this);
+        initAccessTokenWithAkSk();
     }
 
     private void initYunhen() {
@@ -122,5 +128,23 @@ public class AppApplication extends BaseApplication {
             }
         }.start();
 
+    }
+
+    /**
+     * 用明文ak，sk初始化
+     */
+    private void initAccessTokenWithAkSk() {
+        OCR.getInstance(getContext()).initAccessTokenWithAkSk(new OnResultListener<AccessToken>() {
+            @Override
+            public void onResult(AccessToken result) {
+                String token = result.getAccessToken();
+            }
+
+            @Override
+            public void onError(OCRError error) {
+                error.printStackTrace();
+                LogUtils.e("AK，SK方式获取token失败：" +  error.getMessage());
+            }
+        }, getContext(),  "PfnorjLM6o9yjAtgQfU4roIb", "g0TaOMC6xs7ErrUGh3qSWSydsVrX5Fnl");
     }
 }

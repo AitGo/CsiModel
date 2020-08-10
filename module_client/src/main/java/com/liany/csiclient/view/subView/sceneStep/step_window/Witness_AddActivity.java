@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.ocr.ui.camera.CameraActivity;
 import com.bigkoo.pickerview.builder.TimePickerBuilder;
 import com.bigkoo.pickerview.listener.OnTimeSelectListener;
 import com.bigkoo.pickerview.view.TimePickerView;
@@ -150,11 +151,11 @@ public class Witness_AddActivity extends BaseAcitivity implements Witness_AddCon
     }
 
     private void startIDCardOCR(int code) {
-//        Intent intent = new Intent(Witness_AddActivity.this, CameraActivity.class);
-//        intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
-//                FileUtils.getSaveFile(getApplication()).getAbsolutePath());
-//        intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
-//        startActivityForResult(intent, code);
+        Intent intent = new Intent(Witness_AddActivity.this, CameraActivity.class);
+        intent.putExtra(CameraActivity.KEY_OUTPUT_FILE_PATH,
+                FileUtils.getSaveFile(getApplication()).getAbsolutePath());
+        intent.putExtra(CameraActivity.KEY_CONTENT_TYPE, CameraActivity.CONTENT_TYPE_ID_CARD_FRONT);
+        startActivityForResult(intent, code);
     }
 
     @Override
