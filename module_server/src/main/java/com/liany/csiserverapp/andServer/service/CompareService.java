@@ -162,38 +162,29 @@ public class CompareService {
                 + "@@" + unitName
                 + "@@" + unitCode);
         String sendJson = GsonUtils.gsonString(entity);
-        NetWorkUtils.sendFingerTask(mContext, "sendFingerTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
-//                        ToastUtils.showLong("提交对比成功");
-//                        XfUtils.startSpeak("提交对比成功");
-                    }else {
-//                        XfUtils.startSpeak("提交对比失败，服务器返回错误" + response.getMsg());
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFingerTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFingerTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    XfUtils.startSpeak("提交对比失败，服务器返回数据为空");
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-//                XfUtils.startSpeak("提交对比失败，访问服务器错误");
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        } finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startEvidenceOne(HttpRequest request, Context mContext, String evidenceId, String userId) {
@@ -288,34 +279,29 @@ public class CompareService {
                 + "@@" + unitCode);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e("sendFingerTaskOne:" + sendJson);
-        NetWorkUtils.sendFingerTask(mContext, "sendFingerTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos1);
-//                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFingerTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFingerTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos1);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        } finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startEvidenceOut(HttpRequest request, Context mContext, String caseType, String location,
@@ -394,34 +380,29 @@ public class CompareService {
                 + "@@" + unitCode);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e("sendFingerTaskOne:" + sendJson);
-        NetWorkUtils.sendFingerTask(mContext, "sendFingerTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos1);
-//                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFingerTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFingerTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos1);
+                    return GsonUtils.successJson("提交比对成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        } finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startPeople(HttpRequest request, Context mContext, CrimeItem item, String userId) {
@@ -976,38 +957,29 @@ public class CompareService {
         entity.setRev1(rev1);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e(sendJson);
-        NetWorkUtils.sendFootTask(mContext, "sendFootTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
-//                        ToastUtils.showLong("提交对比成功");
-//                        XfUtils.startSpeak("提交对比成功");
-                    }else {
-//                        XfUtils.startSpeak("提交对比失败，服务器返回错误" + response.getMsg());
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFootTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFootTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    XfUtils.startSpeak("提交对比失败，服务器返回数据为空");
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回数据为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-//                XfUtils.startSpeak("提交对比失败，访问服务器错误");
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        }finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startFootOne(HttpRequest request, Context mContext, String evidenceId, String userId) {
@@ -1107,34 +1079,30 @@ public class CompareService {
         entity.setRev1(rev1);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e(sendJson);
-        NetWorkUtils.sendFootTask(mContext, "sendFootTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
+        try {
+            String result = WebServiceUtils.sendFootTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFootTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
 //                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        } finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startFootOut(HttpRequest request, Context mContext, String caseType, String location,
@@ -1217,34 +1185,29 @@ public class CompareService {
         entity.setRev1(rev1);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e(sendJson);
-        NetWorkUtils.sendFootTask(mContext, "sendFootTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
-//                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFootTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFootTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        } finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startFace(HttpRequest request, Context mContext, CrimeItem item, String userId) {
@@ -1337,35 +1300,29 @@ public class CompareService {
                 + "@@" + unitCode);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e(sendJson);
-        NetWorkUtils.sendFaceTask(mContext, "sendFaceTask", sendJson, Constants.zipFilePath + File.separator + zipFileName, new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
-//                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFootTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFaceTask", sendJson, Constants.zipFilePath + File.separator + zipFileName);
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-                FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-//                XfUtils.startSpeak("提交对比失败，访问服务器错误");
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        } finally {
+            //删除压缩包
+            FileUtils.deleteFile(Constants.zipFilePath + File.separator + zipFileName);
+        }
     }
 
     public static String startFaceOne(HttpRequest request, Context mContext, String evidenceId, String userId) {
@@ -1442,31 +1399,26 @@ public class CompareService {
                 + "@@" + unitCode);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e(sendJson);
-        NetWorkUtils.sendFaceTask(mContext, "sendFaceTask", sendJson, photoFile.getAbsolutePath(), new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
-//                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFootTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFaceTask", sendJson, photoFile.getAbsolutePath());
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-                //删除压缩包
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        }
     }
 
     public static String startFaceOut(HttpRequest request, Context mContext, String caseType, String location,
@@ -1527,30 +1479,26 @@ public class CompareService {
                 + "@@" + unitCode);
         String sendJson = GsonUtils.gsonString(entity);
         LogUtils.e(sendJson);
-        NetWorkUtils.sendFaceTask(mContext, "sendFaceTask", sendJson, photoFile.getAbsolutePath(), new NetWorkUtils.Callback() {
-            @Override
-            public void onNext(String result) {
-                if(StringUtils.checkString(result)) {
-                    Response<String> response = GsonUtils.fromJsonObject(result,String.class);
-                    if(response.getCode() == 0) {
-                        //上传服务器成功，写入本地数据库
-                        CompareDB.updateCompareEntity(compareEntity);
-                        CompareDB.updateComparePhotoList(comparePhotos);
-//                        ToastUtils.showLong("提交对比成功");
-                    }else {
-//                        ToastUtils.showLong("提交对比失败：" + response.getMsg());
-                    }
+        try {
+            String result = WebServiceUtils.sendFootTask(((String) SPUtils.getParam(mContext,Constants.sp_url,Constants.defaultURL)).replace("?wsdl",""),
+                    "sendFaceTask", sendJson, photoFile.getAbsolutePath());
+            if(StringUtils.checkString(result)) {
+                Response<String> response = GsonUtils.fromJsonObject(result,String.class);
+                if(response.getCode() == 0) {
+                    //上传服务器成功，写入本地数据库
+                    CompareDB.updateCompareEntity(compareEntity);
+                    CompareDB.updateComparePhotoList(comparePhotos);
+                    return GsonUtils.successJson("提交对比成功");
                 }else {
-//                    ToastUtils.showLong("提交对比失败：服务器返回错误");
+                    return GsonUtils.faildJson(500,response.getMsg());
                 }
+            }else {
+                return GsonUtils.faildJson(500,"服务器返回信息为空");
             }
-
-            @Override
-            public void onError(Throwable e) {
-//                ToastUtils.showLong("提交对比失败：" + e.getMessage());
-            }
-        });
-        return GsonUtils.successJson("提交比对中");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return GsonUtils.faildJson(500,e.getMessage());
+        }
     }
 
     public static String getCompareResult(Context mContext, String crimeId, String state) {

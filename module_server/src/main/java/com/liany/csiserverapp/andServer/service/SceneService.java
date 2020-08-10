@@ -277,8 +277,8 @@ public class SceneService {
 
     public static void uploadCrimeScene(Context mContext, CrimeItem item, Item2Scene item2Scene) {
         List<CrimeScene> items = new ArrayList<>();
-        CrimeItem crimeItem = SceneDB.selectCrimeById(item.getId());
         //删除人脸信息
+        CrimeItem crimeItem = SceneDB.selectCrimeByIdWithOutFace(item.getId());
 
         CrimeScene scene = item2Scene.item2Scene(crimeItem);
         items.add(scene);

@@ -59,7 +59,7 @@ public class Select_Check_UserActivity extends BaseAcitivity implements View.OnC
         tvTitle = findViewById(R.id.tv_title);
         ivTitleConfirm = findViewById(R.id.iv_title_confirm);
         llList = findViewById(R.id.ll_list);
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.rv_list);
 
         ivTitleBack.setOnClickListener(this);
         ivTitleConfirm.setOnClickListener(this);
