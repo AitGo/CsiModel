@@ -7,6 +7,8 @@ android {
         targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
+
+        buildConfigField("boolean", "isModule", "${isModule}")
     }
 
     sourceSets {
@@ -31,8 +33,6 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-//    api files('libs\\TypeBuilder-1.0.jar')
-//    api files('libs\\AMap3DMap_7.1.0_AMapSearch_7.1.0_AMapLocation_4.8.0_20191210.jar')
     // Support libraries
     api deps.support.app_compat
     api deps.support.constraintlayout
@@ -84,5 +84,8 @@ dependencies {
     api files('libs\\app-release.aar')
     api files('libs\\easycollectlibrary-release.aar')
     api project(path: ':ocr_ui')
-
+    //PictureSelector
+    api ('com.github.LuckSiege.PictureSelector:picture_library:v2.5.8') {
+        exclude group: 'com.github.LuckSiege.PictureSelector', module: 'ucrop'
+    }
 }

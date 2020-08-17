@@ -31,8 +31,8 @@ public class Constants {
 //    public static String ipAddress = "http://" + IpUtils.getIpAddress(ServerApplication.getContext()) + ":8080/";
 //    public static String ip = "192.168.43.1";
 //    public static String ip = IpUtils.getIpAddress(ServerApplication.getContext());
-//    public static String ip = "127.0.0.1";
-    public static String ip = "192.168.31.232";
+    public static String ip = "127.0.0.1";
+//    public static String ip = "192.168.31.232";
     public static boolean isUseService = true;
     public static boolean isAlarm = true;
 

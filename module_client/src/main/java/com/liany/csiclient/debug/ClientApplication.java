@@ -1,5 +1,6 @@
 package com.liany.csiclient.debug;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
@@ -12,9 +13,12 @@ import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.kc.criminaiinvest.bean.ExecuteDraw;
+import com.liany.csiclient.R;
 import com.liany.csiclient.base.Constants;
 import com.liany.csiclient.utils.CrashHandler;
+import com.liany.csiclient.utils.IpUtils;
 import com.liany.csiclient.utils.LogUtils;
+import com.liany.model.common.BuildConfig;
 import com.liany.model.common.base.BaseApplication;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
@@ -39,6 +43,13 @@ public class ClientApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        boolean isModule = BuildConfig.isModule;
+        if(isModule) {
+            Constants.ipAddress = "http://" + IpUtils.getIpAddress(BaseApplication.getContext()) +  ":8080";
+//            Constants.ipAddress = "http://192.168.43.1:8080";
+        }else {
+            Constants.ipAddress = "http://localhost:8080";
+        }
         //获取context
 //        initBugly();
         initYunhen();

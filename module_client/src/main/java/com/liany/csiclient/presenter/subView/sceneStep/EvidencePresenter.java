@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.BitmapFactory;
+import android.os.Build;
 
 import com.liany.csiclient.base.Constants;
 import com.liany.csiclient.callback.callBack;
@@ -209,7 +210,11 @@ public class EvidencePresenter implements EvidenceContract.Presenter {
                 for(LocalMedia media : selectList) {
                     String compressPath = media.getCompressPath();
                     if(!StringUtils.checkString(compressPath)) {
-                        compressPath = media.getPath();
+                        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            compressPath = media.getAndroidQToPath();
+                        }else {
+                            compressPath = media.getRealPath();
+                        }
                     }
                     File file1 = new File(compressPath);
                     files.add(file1);
@@ -377,7 +382,11 @@ public class EvidencePresenter implements EvidenceContract.Presenter {
                 for(LocalMedia media : selectList) {
                     String compressPath = media.getCompressPath();
                     if(!StringUtils.checkString(compressPath)) {
-                        compressPath = media.getPath();
+                        if(android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                            compressPath = media.getAndroidQToPath();
+                        }else {
+                            compressPath = media.getRealPath();
+                        }
                     }
                     File file1 = new File(compressPath);
                     files.add(file1);

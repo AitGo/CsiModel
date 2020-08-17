@@ -816,6 +816,7 @@ public class EvidenceActivity extends BaseAcitivity implements EvidenceContract.
         evidenceList.clear();
         evidenceList.addAll(evidenceFingerList);
         evidenceList.addAll(evidenceFootList);
+        evidenceList.addAll(evidenceFaceList);
         evidenceList.addAll(evidenceOtherList);
         Intent intent = getIntent();
         crimeItem.setEvidenceItem(evidenceList);

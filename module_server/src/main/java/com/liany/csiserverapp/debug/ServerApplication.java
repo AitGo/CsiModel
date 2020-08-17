@@ -1,17 +1,21 @@
 package com.liany.csiserverapp.debug;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.liany.csiserverapp.R;
 import com.liany.csiserverapp.base.Constants;
 import com.liany.csiserverapp.base.GreenDaoContext;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoMaster;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoSession;
 import com.liany.csiserverapp.db.DBHelper;
 import com.liany.csiserverapp.network.NetWorkManager;
+import com.liany.csiserverapp.utils.IpUtils;
 import com.liany.csiserverapp.utils.SPUtils;
+import com.liany.model.common.BuildConfig;
 import com.liany.model.common.base.BaseApplication;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -25,8 +29,15 @@ public class ServerApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        //获取context
         mContext = getApplicationContext();
+        boolean isModule = BuildConfig.isModule;
+        if(isModule) {
+            Constants.ip = IpUtils.getIpAddress(BaseApplication.getContext());
+//            Constants.ip = "192.168.43.1";
+        }else {
+            Constants.ip = "127.0.0.1";
+        }
+        //获取context
         initGreenDao();
         initRetrofit2();
         initToast();

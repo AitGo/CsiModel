@@ -234,6 +234,8 @@ public class FigurePresenter implements FigureContract.Presenter {
                             positionEntity.getId(),positionEntity.getState(),
                             positionEntity.getCrimeId(),
                             positionEntity.getCrimeId(),
+                            positionEntity.getPhotoInfo(),
+                            "",
                             new callBack() {
                         @Override
                         public void onSuccess(String date) {

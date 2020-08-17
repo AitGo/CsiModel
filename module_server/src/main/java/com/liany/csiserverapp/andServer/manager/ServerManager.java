@@ -30,11 +30,8 @@ public class ServerManager {
         InetAddress inetAddress = null;
         try {
             //热点为固定ip 192.168.43.1
-//            inetAddress = InetAddress.getByName("0.0.0.0");
             inetAddress = InetAddress.getByName(Constants.ip);
-//            inetAddress = InetAddress.getByName(IpUtils.getIpAddress(mContext));
             LogUtils.e("ipAddress ip:" + Constants.ip);
-            LogUtils.e("ipAddress:" + Constants.ipAddress);
             LogUtils.e("ipAddress local:" + IpUtils.getIpAddress(mContext));
         } catch (UnknownHostException e) {
             e.printStackTrace();

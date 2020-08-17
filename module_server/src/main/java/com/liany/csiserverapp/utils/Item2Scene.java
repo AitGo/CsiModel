@@ -2,6 +2,7 @@ package com.liany.csiserverapp.utils;
 
 import android.content.Context;
 
+import com.liany.csiserverapp.andServer.model.UserDb;
 import com.liany.csiserverapp.base.Constants;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoSession;
 import com.liany.csiserverapp.dao.database.greenDao.db.PhotoDao;
@@ -18,6 +19,7 @@ import com.liany.csiserverapp.diagnose.SceneWifiInfo;
 import com.liany.csiserverapp.diagnose.ToolEntity;
 import com.liany.csiserverapp.diagnose.WitnessEntity;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoSession;
+import com.liany.csiserverapp.diagnose.sysOrgan;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -170,7 +172,9 @@ public class Item2Scene {
         sceneinvestigationBean.setUPDATE_DATETIME(StringUtils.long2String(item.getUpdateTime(),"yyyy-MM-dd HH:mm:ss"));
 
         sceneinvestigationBean.setRESERVER3("1");
+        sceneinvestigationBean.setRESERVER6("2");
         sceneinvestigationBean.setENTRY_VERSION("standard");
+        sceneinvestigationBean.setMODIFY_FLAG("1");
         return sceneinvestigationBean;
     }
 
@@ -185,7 +189,9 @@ public class Item2Scene {
         lawcase.setRESERVER2(item.getId());
         lawcase.setCASE_TYPE(item.getCasetypeKey());
         lawcase.setCASE_TYPE_VALUE(item.getCasetype());
-        lawcase.setSCENE_REGIONALISM(item.getArea());
+        sysOrgan sysOrgan = UserDb.selectUnitName(item.getAreaKey());
+        lawcase.setSCENE_REGIONALISM(sysOrgan.getUnitCode());
+        lawcase.setINIT_SERVER_NO(unitCode);
         lawcase.setSCENE_DETAIL(item.getLocation());
         lawcase.setOCCURRENCE_DATE_FROM(StringUtils.long2String(item.getOccurred_start_time(),"yyyy-MM-dd HH:mm:ss"));
         lawcase.setOCCURRENCE_DATE_TO(StringUtils.long2String(item.getOccurred_end_time(),"yyyy-MM-dd HH:mm:ss"));
@@ -531,7 +537,7 @@ public class Item2Scene {
             scenepictureBean.setCREATE_USER_ID(userId);
             scenepictureBean.setPICTURE_ID(photo.getId());
             scenepictureBean.setPICTURE_NAME(photo.getPhotoInfo());
-            scenepictureBean.setPICTURE_TYPE("1000");
+            scenepictureBean.setPICTURE_TYPE("1082");
             scenepictureBean.setDESCRIPTION(photo.getPhotoInfo());
             scenepictureBean.setSECRECY(SECRECY);
             scenepictureBean.setDELETE_FLAG(DELETE_FLAG);

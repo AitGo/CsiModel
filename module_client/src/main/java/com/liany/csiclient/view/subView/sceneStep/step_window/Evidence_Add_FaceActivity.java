@@ -219,7 +219,7 @@ public class Evidence_Add_FaceActivity extends BaseAcitivity implements Evidence
     public void takePhoto() {
 //        Intent intent = new Intent(Evidence_Add_FingerActivity.this, com.liany.csiclient.widget.myCamera.CameraActivity.class);
 //        startActivityForResult(intent, Constants.REQUEST_EVIDENCE_EVIDENCE_GOOGLE);
-        outputImagepath = SysCameraUtils.takePhoto(this, Constants.path_photoDir + File.separator,"finger", Constants.REQUEST_EVIDENCE_EVIDENCE_GOOGLE);
+        outputImagepath = SysCameraUtils.takePhoto(this, Constants.path_photoDir + File.separator,"finger", Constants.REQUEST_EVIDENCE_EVIDENCE);
     }
 
     @Override

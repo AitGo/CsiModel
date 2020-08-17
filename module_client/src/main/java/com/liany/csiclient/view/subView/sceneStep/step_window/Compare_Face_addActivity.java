@@ -386,7 +386,7 @@ public class Compare_Face_addActivity extends BaseAcitivity implements View.OnCl
      * 打开系统相机
      */
     public void takePhoto() {
-        outputImagepath = SysCameraUtils.takePhoto(this, Constants.path_photoDir + File.separator,"finger", Constants.REQUEST_EVIDENCE_EVIDENCE_GOOGLE);
+        outputImagepath = SysCameraUtils.takePhoto(this, Constants.path_photoDir + File.separator,"finger", Constants.REQUEST_EVIDENCE_EVIDENCE);
     }
 
     public void goPhotoAlbum() {

@@ -125,19 +125,11 @@ public class LoginActivity extends BaseAcitivity implements LoginContract.View, 
         MyDialog.Builder builder = new MyDialog.Builder(this);
         updateDialog = builder.setTitle(getString(R.string.prompt))
                 .setMsg("是否要更新数据库信息")
-                .setPositiveButton(getString(R.string.confirm), new MyDialog.ConfirmListener() {
-                    @Override
-                    public void onClick() {
-                        presenter.updateDB();
-                        updateDialog.dismiss();
-                    }
+                .setPositiveButton(getString(R.string.confirm), () -> {
+                    presenter.updateDB();
+                    updateDialog.dismiss();
                 })
-                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        updateDialog.dismiss();
-                    }
-                })
+                .setNegativeButton(getString(R.string.cancel), (dialog, which) -> updateDialog.dismiss())
                 .create();
         updateDialog.show();
     }

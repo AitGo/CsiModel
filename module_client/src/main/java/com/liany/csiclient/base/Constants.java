@@ -20,7 +20,6 @@ import com.liany.model.common.base.BaseApplication;
 public class Constants {
 
     public static AMapLocationClientOption.AMapLocationMode AMAP_MODE = AMapLocationClientOption.AMapLocationMode.Hight_Accuracy;
-
     public static String ipAddress = "http://" + IpUtils.getIpAddress(BaseApplication.getContext()) +  ":8080";
 //    public static String ipAddress = "http://192.168.31.145:8080";
 //    public static String ipAddress = "http://192.168.43.1:8080";
