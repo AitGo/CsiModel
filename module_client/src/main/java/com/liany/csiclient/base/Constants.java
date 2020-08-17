@@ -74,6 +74,7 @@ public class Constants {
     public static String sp_unitCode = "unitCode";
     public static String sp_accessInspectorsKey = "accessKey";
     public static String sp_accessInspectors = "access";
+    public static String sp_accessInspectorsId = "accessId";
     public static String sp_UseDevice = "useDevice";
     public static String sp_UseDevicePeople = "useDevicePeople";
     public static final String positionFilePathKey = "positionFileName";

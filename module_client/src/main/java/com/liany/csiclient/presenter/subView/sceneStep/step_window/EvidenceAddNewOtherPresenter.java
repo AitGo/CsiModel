@@ -464,7 +464,7 @@ public class EvidenceAddNewOtherPresenter implements EvidenceAddNewOtherContract
 
     @Override
     public void getPeople() {
-        String value = addView.getPeople();
+        String value = addView.getPeopleId();
         addModel.selectGetPeople(addModel.getOrganId(), new callBack() {
             @Override
             public void onSuccess(String date) {

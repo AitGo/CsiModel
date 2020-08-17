@@ -51,6 +51,7 @@ import com.luck.picture.lib.tools.PictureFileUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -469,6 +470,7 @@ public class EvidenceActivity extends BaseAcitivity implements EvidenceContract.
                     .loadImageEngine(GlideEngine.createGlideEngine())
                     .isCompress(true)// 是否压缩
                     .minimumCompressSize(300)// 小于多少kb的图片不压缩
+                    .renameCompressFile(StringUtils.long2FileName(new Date()) + ".jpg")
                     .forResult(Constants.REQUEST_EVIDENCE_MONITORING_img_more);
         } else if (id == R.id.iv_monitoring) {
             evidencePresenter.addPosition(Constants.REQUEST_EVIDENCE_MONITORING);
@@ -488,6 +490,7 @@ public class EvidenceActivity extends BaseAcitivity implements EvidenceContract.
                     .loadImageEngine(GlideEngine.createGlideEngine())
                     .isCompress(true)// 是否压缩
                     .minimumCompressSize(300)// 小于多少kb的图片不压缩
+                    .renameCompressFile(StringUtils.long2FileName(new Date()) + ".jpg")
                     .forResult(Constants.REQUEST_EVIDENCE_CAMERA_img_more);
         } else if (id == R.id.iv_camera) {
             evidencePresenter.addPosition(Constants.REQUEST_EVIDENCE_CAMERA);

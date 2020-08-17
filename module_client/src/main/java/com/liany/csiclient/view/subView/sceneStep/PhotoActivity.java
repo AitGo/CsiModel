@@ -47,6 +47,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -338,6 +339,7 @@ public class PhotoActivity extends BaseAcitivity implements PhotoContract.View, 
                     .loadImageEngine(GlideEngine.createGlideEngine())
                     .isCompress(true)// 是否压缩
                     .minimumCompressSize(300)// 小于多少kb的图片不压缩
+                    .renameCompressFile(StringUtils.long2FileName(new Date()) + ".jpg")
                     .forResult(Constants.REQUEST_TAKE_PHOTO_POSITION_img_more);
         } else if (id == R.id.iv_position) {
             photoPresenter.addPosition(Constants.REQUEST_TAKE_PHOTO_POSITION);
@@ -357,6 +359,7 @@ public class PhotoActivity extends BaseAcitivity implements PhotoContract.View, 
                     .loadImageEngine(GlideEngine.createGlideEngine())
                     .isCompress(true)// 是否压缩
                     .minimumCompressSize(300)// 小于多少kb的图片不压缩
+                    .renameCompressFile(StringUtils.long2FileName(new Date()) + ".jpg")
                     .forResult(Constants.REQUEST_TAKE_PHOTO_LIKE_img_more);
         } else if (id == R.id.iv_like) {
             photoPresenter.addPosition(Constants.REQUEST_TAKE_PHOTO_LIKE);
@@ -376,6 +379,7 @@ public class PhotoActivity extends BaseAcitivity implements PhotoContract.View, 
                     .loadImageEngine(GlideEngine.createGlideEngine())
                     .isCompress(true)// 是否压缩
                     .minimumCompressSize(300)// 小于多少kb的图片不压缩
+                    .renameCompressFile(StringUtils.long2FileName(new Date()) + ".jpg")
                     .forResult(Constants.REQUEST_TAKE_PHOTO_IMPORTANT_img_more);
         } else if (id == R.id.iv_important) {
             photoPresenter.addPosition(Constants.REQUEST_TAKE_PHOTO_IMPORTANT);
@@ -395,6 +399,7 @@ public class PhotoActivity extends BaseAcitivity implements PhotoContract.View, 
                     .loadImageEngine(GlideEngine.createGlideEngine())
                     .isCompress(true)// 是否压缩
                     .minimumCompressSize(300)// 小于多少kb的图片不压缩
+                    .renameCompressFile(StringUtils.long2FileName(new Date()) + ".jpg")
                     .forResult(Constants.REQUEST_TAKE_PHOTO_DETAIL_img_more);
         } else if (id == R.id.iv_detail) {
             photoPresenter.addPosition(Constants.REQUEST_TAKE_PHOTO_DETAIL);

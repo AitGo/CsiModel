@@ -363,6 +363,22 @@ public class StringUtils {
         return value.substring(0,index);
     }
 
+    public static String selectUserId2String(List<selectUser> users) {
+        String value = "";
+        StringBuilder valueBuilder = new StringBuilder();
+        for(selectUser user : users) {
+            valueBuilder.append(value);
+            valueBuilder.append(user.getUserId());
+            valueBuilder.append(",");
+        }
+        value = valueBuilder.toString();
+        int index = 0;
+        if(valueBuilder.length() != 0) {
+            index = valueBuilder.length()-1;
+        }
+        return value.substring(0,index);
+    }
+
     public static String sysDictValue2String(List<sysDict> dicts) {
         String value = "";
         StringBuilder valueBuilder = new StringBuilder();

@@ -164,6 +164,11 @@ public class BaseInfoModel implements BaseInfoContract.Model {
     }
 
     @Override
+    public void setAccessInspectorsId(String s) {
+        SPUtils.setParam(mContext, Constants.sp_accessInspectorsId,s);
+    }
+
+    @Override
     public void createCrimeItem(String baseInfo, callBack callBack) {
         OkGo.<String>post( Constants.ipAddress + "/scene/createScene")
                 .tag(this)

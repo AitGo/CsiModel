@@ -28,10 +28,10 @@ public class EvidenceEntity implements Serializable {
     private String methodKey;//提取方法
     private long time;//提取时间
     private String people;//提取人
-    private String peopleKey;//提取人id
+    private String peopleKey;//提取人技术表id
     private Photo photo;
     private String rev1;//事主比对结果
-    private String rev2;
+    private String rev2;//提取人id
     private String rev3;
     private String rev4;
 

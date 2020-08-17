@@ -120,6 +120,7 @@ public class BaseInfoPresenter implements BaseInfoContract.Presenter {
                     view.setAccessInspectors(users);
                     model.setAccessInspectors(StringUtils.selectUserValue2String(users));
                     model.setAccessInspectorsKey(StringUtils.selectUserKey2String(users));
+                    model.setAccessInspectorsId(StringUtils.selectUserId2String(users));
                 }
             } else if(requestCode == Constants.REQUEST_RADIO_USER) {
                 if(data.getStringExtra(Constants.SELECT_TITLE).equals(sceneConductor)) {
@@ -135,7 +136,7 @@ public class BaseInfoPresenter implements BaseInfoContract.Presenter {
 
     @Override
     public void accessInspectors() {
-        String value = view.getAccessInspectors();
+        String value = view.getAccessInspectorsId();
         model.selectAccessInspectors(model.getOrganId(), new callBack() {
             @Override
             public void onSuccess(String date) {

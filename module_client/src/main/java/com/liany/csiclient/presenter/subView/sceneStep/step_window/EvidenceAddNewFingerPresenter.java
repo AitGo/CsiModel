@@ -389,7 +389,7 @@ public class EvidenceAddNewFingerPresenter implements EvidenceAddNewFingerContra
 
         @Override
         public void getPeople() {
-            String value = addView.getPeople();
+            String value = addView.getPeopleId();
             addModel.selectGetPeople(addModel.getOrganId(), new callBack() {
                 @Override
                 public void onSuccess(String date) {

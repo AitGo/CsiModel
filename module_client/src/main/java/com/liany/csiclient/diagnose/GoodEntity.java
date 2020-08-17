@@ -17,7 +17,7 @@ public class GoodEntity implements Serializable {
     private String id;
     private String crimeId;
     private String collectedName;//提取人
-    private String collectedIds;//提取人id
+    private String collectedIds;//提取人技术表id
     private String materialName;//物证名称
     private String collectedPosition;//提取部位
     private String collectedMethod;//提取方法
@@ -29,7 +29,7 @@ public class GoodEntity implements Serializable {
     private String code;//二维码
 
     private String rev1;//0:普通检材 1:生物检材
-    private String rev2;
+    private String rev2;//提取人id
     private String rev3;
     private String rev4;
 

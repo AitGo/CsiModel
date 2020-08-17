@@ -66,6 +66,7 @@ public interface EvidenceAddNewFaceContract {
         void setPeople(String people);
         void setPeople(List<selectUser> users);
         String getPeople();
+        String getPeopleId();
 
         String getPhotoFile();
 

@@ -121,6 +121,10 @@ public class CrimeItemDao extends AbstractDao<CrimeItem, String> {
         public final static Property CrimePurpose = new Property(91, String.class, "crimePurpose", false, "CRIME_PURPOSE");
         public final static Property CrimePurposeKey = new Property(92, String.class, "crimePurposeKey", false, "CRIME_PURPOSE_KEY");
         public final static Property CrimePurposeDesc = new Property(93, String.class, "crimePurposeDesc", false, "CRIME_PURPOSE_DESC");
+        public final static Property Rev1 = new Property(94, String.class, "rev1", false, "REV1");
+        public final static Property Rev2 = new Property(95, String.class, "rev2", false, "REV2");
+        public final static Property Rev3 = new Property(96, String.class, "rev3", false, "REV3");
+        public final static Property Rev4 = new Property(97, String.class, "rev4", false, "REV4");
     }
 
     private DaoSession daoSession;
@@ -233,7 +237,11 @@ public class CrimeItemDao extends AbstractDao<CrimeItem, String> {
                 "\"SELECT_LOCATION_DESC\" TEXT," + // 90: selectLocationDesc
                 "\"CRIME_PURPOSE\" TEXT," + // 91: crimePurpose
                 "\"CRIME_PURPOSE_KEY\" TEXT," + // 92: crimePurposeKey
-                "\"CRIME_PURPOSE_DESC\" TEXT);"); // 93: crimePurposeDesc
+                "\"CRIME_PURPOSE_DESC\" TEXT," + // 93: crimePurposeDesc
+                "\"REV1\" TEXT," + // 94: rev1
+                "\"REV2\" TEXT," + // 95: rev2
+                "\"REV3\" TEXT," + // 96: rev3
+                "\"REV4\" TEXT);"); // 97: rev4
     }
 
     /** Drops the underlying database table. */
@@ -679,6 +687,26 @@ public class CrimeItemDao extends AbstractDao<CrimeItem, String> {
         if (crimePurposeDesc != null) {
             stmt.bindString(94, crimePurposeDesc);
         }
+ 
+        String rev1 = entity.getRev1();
+        if (rev1 != null) {
+            stmt.bindString(95, rev1);
+        }
+ 
+        String rev2 = entity.getRev2();
+        if (rev2 != null) {
+            stmt.bindString(96, rev2);
+        }
+ 
+        String rev3 = entity.getRev3();
+        if (rev3 != null) {
+            stmt.bindString(97, rev3);
+        }
+ 
+        String rev4 = entity.getRev4();
+        if (rev4 != null) {
+            stmt.bindString(98, rev4);
+        }
     }
 
     @Override
@@ -1118,6 +1146,26 @@ public class CrimeItemDao extends AbstractDao<CrimeItem, String> {
         if (crimePurposeDesc != null) {
             stmt.bindString(94, crimePurposeDesc);
         }
+ 
+        String rev1 = entity.getRev1();
+        if (rev1 != null) {
+            stmt.bindString(95, rev1);
+        }
+ 
+        String rev2 = entity.getRev2();
+        if (rev2 != null) {
+            stmt.bindString(96, rev2);
+        }
+ 
+        String rev3 = entity.getRev3();
+        if (rev3 != null) {
+            stmt.bindString(97, rev3);
+        }
+ 
+        String rev4 = entity.getRev4();
+        if (rev4 != null) {
+            stmt.bindString(98, rev4);
+        }
     }
 
     @Override
@@ -1227,7 +1275,11 @@ public class CrimeItemDao extends AbstractDao<CrimeItem, String> {
             cursor.isNull(offset + 90) ? null : cursor.getString(offset + 90), // selectLocationDesc
             cursor.isNull(offset + 91) ? null : cursor.getString(offset + 91), // crimePurpose
             cursor.isNull(offset + 92) ? null : cursor.getString(offset + 92), // crimePurposeKey
-            cursor.isNull(offset + 93) ? null : cursor.getString(offset + 93) // crimePurposeDesc
+            cursor.isNull(offset + 93) ? null : cursor.getString(offset + 93), // crimePurposeDesc
+            cursor.isNull(offset + 94) ? null : cursor.getString(offset + 94), // rev1
+            cursor.isNull(offset + 95) ? null : cursor.getString(offset + 95), // rev2
+            cursor.isNull(offset + 96) ? null : cursor.getString(offset + 96), // rev3
+            cursor.isNull(offset + 97) ? null : cursor.getString(offset + 97) // rev4
         );
         return entity;
     }
@@ -1328,6 +1380,10 @@ public class CrimeItemDao extends AbstractDao<CrimeItem, String> {
         entity.setCrimePurpose(cursor.isNull(offset + 91) ? null : cursor.getString(offset + 91));
         entity.setCrimePurposeKey(cursor.isNull(offset + 92) ? null : cursor.getString(offset + 92));
         entity.setCrimePurposeDesc(cursor.isNull(offset + 93) ? null : cursor.getString(offset + 93));
+        entity.setRev1(cursor.isNull(offset + 94) ? null : cursor.getString(offset + 94));
+        entity.setRev2(cursor.isNull(offset + 95) ? null : cursor.getString(offset + 95));
+        entity.setRev3(cursor.isNull(offset + 96) ? null : cursor.getString(offset + 96));
+        entity.setRev4(cursor.isNull(offset + 97) ? null : cursor.getString(offset + 97));
      }
     
     @Override

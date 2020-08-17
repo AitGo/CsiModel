@@ -126,6 +126,7 @@ public class Evidence_Add_FootActivity extends BaseAcitivity implements Evidence
         if (position == -1) {
             entity.setPeople((String) SPUtils.getParam(this, Constants.sp_accessInspectors, ""));
             entity.setPeopleKey((String) SPUtils.getParam(this, Constants.sp_accessInspectorsKey, ""));
+            entity.setRev2((String) SPUtils.getParam(this, Constants.sp_accessInspectorsId, ""));
             setPeople((String) SPUtils.getParam(this, Constants.sp_accessInspectors, ""));
             entity.setEvidence("鞋印");
             entity.setEvidenceKey("1");
@@ -413,11 +414,17 @@ public class Evidence_Add_FootActivity extends BaseAcitivity implements Evidence
         }
         entity.setPeople(StringUtils.selectUserValue2String(users));
         entity.setPeopleKey(StringUtils.selectUserKey2String(users));
+        entity.setRev2(StringUtils.selectUserId2String(users));
     }
 
     @Override
     public String getPeople() {
         return this.getPeople.getText().toString();
+    }
+
+    @Override
+    public String getPeopleId() {
+        return entity.getRev2();
     }
 
     @Override

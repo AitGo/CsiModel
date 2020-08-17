@@ -97,10 +97,10 @@ public class Select_Check_UserActivity extends BaseAcitivity implements View.OnC
         itemList.addAll((List<selectUser>) getIntent().getSerializableExtra(Constants.SELECT_CHECK_USER));
         String value = getIntent().getStringExtra(Constants.SELECT_POSITION);
         if(value != null && !value.equals("")) {
-            String[] values = value.split("、");
+            String[] values = value.split(",");
             for(selectUser user : itemList) {
-                for(String username : values) {
-                    if(user.getTrueName().equals(username)) {
+                for(String userId : values) {
+                    if(user.getUserId().equals(userId)) {
                         chooseList.add(user);
                         user.setCheck(true);
                     }

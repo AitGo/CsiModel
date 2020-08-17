@@ -34,6 +34,7 @@ public interface Extract_AddContract {
 
     interface View {
         String getCollectedName();
+        String getCollectedId();
 
         void setCollectedName(String user);
         void setCollectedName(List<selectUser> users);

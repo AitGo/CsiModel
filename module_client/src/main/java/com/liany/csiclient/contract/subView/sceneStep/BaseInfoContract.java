@@ -33,14 +33,16 @@ public interface BaseInfoContract {
 
         void setAccessInspectorsKey(String s);
 
-        void createCrimeItem(String baseInfo, callBack callBack);
+        void setAccessInspectorsId(String selectUserId2String);
 
+        void createCrimeItem(String baseInfo, callBack callBack);
     }
 
     interface View {
         void setAccessInspectors(String accessInspectors);
         void setAccessInspectors(List<selectUser> users);
         String getAccessInspectors();
+        String getAccessInspectorsId();
         void setWeatherCondition(String weatherCondition);
         void setWeatherCondition(sysDict dict);
         String getWeatherCondition();

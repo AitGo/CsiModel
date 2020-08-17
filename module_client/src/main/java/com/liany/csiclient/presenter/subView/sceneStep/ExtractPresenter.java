@@ -45,6 +45,7 @@ public class ExtractPresenter implements ExtractContract.Presenter {
         entity.setCollectedDate(StringUtils.Date2String(new Date(),"yyyy-MM-dd"));
         entity.setCollectedName((String) SPUtils.getParam(mContext, Constants.sp_accessInspectors,""));
         entity.setCollectedIds((String) SPUtils.getParam(mContext, Constants.sp_accessInspectorsKey,""));
+        entity.setRev2((String) SPUtils.getParam(mContext, Constants.sp_accessInspectorsId,""));
         view.startActivity(Extract_AddActivity.class,item,entity,-1);
     }
 
@@ -57,6 +58,7 @@ public class ExtractPresenter implements ExtractContract.Presenter {
         entity.setCollectedDate(StringUtils.Date2String(new Date(),"yyyy-MM-dd"));
         entity.setCollectedName((String) SPUtils.getParam(mContext, Constants.sp_accessInspectors,""));
         entity.setCollectedIds((String) SPUtils.getParam(mContext, Constants.sp_accessInspectorsKey,""));
+        entity.setRev2((String) SPUtils.getParam(mContext, Constants.sp_accessInspectorsId,""));
         view.startActivity(Extract_AddActivity.class,item,entity,-1);
     }
 

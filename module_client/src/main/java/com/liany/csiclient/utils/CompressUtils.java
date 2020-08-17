@@ -7,6 +7,7 @@ import com.liany.csiclient.base.Constants;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Date;
 
 import top.zibin.luban.CompressionPredicate;
 import top.zibin.luban.Luban;
@@ -57,7 +58,7 @@ public class CompressUtils {
                 .setRenameListener(new OnRenameListener() {
                     @Override
                     public String rename(String filePath) {
-                        return rename + finalFile.getName();
+                        return rename + StringUtils.long2FileName(new Date()) + finalFile.getName().substring(finalFile.getName().lastIndexOf("."));
                     }
                 })
                 .setCompressListener(new OnCompressListener() {

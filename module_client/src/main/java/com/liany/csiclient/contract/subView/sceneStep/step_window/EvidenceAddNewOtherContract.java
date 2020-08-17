@@ -79,6 +79,7 @@ public interface EvidenceAddNewOtherContract {
         void setPeople(List<selectUser> users);
 
         String getPeople();
+        String getPeopleId();
 
         String getPhotoFile();
 

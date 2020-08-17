@@ -212,6 +212,11 @@ public class CrimeItem implements Serializable {
 
     @ToMany(referencedJoinProperty = "id")
     private List<KCTBASESTATIONDATABean> kctbasestationdataBeans;//基站数据
+
+    private String rev1;//勘验人id
+    private String rev2;
+    private String rev3;
+    private String rev4;
     /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
@@ -219,42 +224,34 @@ public class CrimeItem implements Serializable {
     @Generated(hash = 1178179243)
     private transient CrimeItemDao myDao;
 
-    @Generated(hash = 360332936)
-    public CrimeItem(String id, String sceneId, String sceneNo, String caseId,
-            String receptionId, String isUpload, String loginName, String userName,
-            String unitCode, long createTime, long updateTime, String complete,
-            Boolean isCollecting, Boolean isCollected, List<String> cellResult,
-            double gpsLat, double gpsLon, Boolean getLastData, String casetype,
-            String casetypeKey, String location, String accessInspectors,
-            String accessInspectorsKey, String accessReason,
-            String caseOccurProcess, String weatherCondition,
-            String weatherConditionKey, String windDirection,
-            String windDirectionKey, String temperature, String humidity,
-            String area, String areaKey, long occurred_start_time,
-            long occurred_end_time, long get_access_time, String unitsAssigned,
-            String accessPolicemen, long access_start_time, long access_end_time,
-            String accessLocation, String sceneCondition, String sceneConditionKey,
-            String changeOption, String changeOptionKey, String changeReason,
-            String illuminationCondition, String illuminationConditionKey,
-            String productPeopleName, String productPeopleUnit,
-            String productPeopleDuties, String safeguard, String sceneConductor,
-            String sceneConductorKey, String overview, String overviewId,
+    @Generated(hash = 392223013)
+    public CrimeItem(String id, String sceneId, String sceneNo, String caseId, String receptionId,
+            String isUpload, String loginName, String userName, String unitCode, long createTime,
+            long updateTime, String complete, Boolean isCollecting, Boolean isCollected,
+            List<String> cellResult, double gpsLat, double gpsLon, Boolean getLastData, String casetype,
+            String casetypeKey, String location, String accessInspectors, String accessInspectorsKey,
+            String accessReason, String caseOccurProcess, String weatherCondition,
+            String weatherConditionKey, String windDirection, String windDirectionKey,
+            String temperature, String humidity, String area, String areaKey, long occurred_start_time,
+            long occurred_end_time, long get_access_time, String unitsAssigned, String accessPolicemen,
+            long access_start_time, long access_end_time, String accessLocation, String sceneCondition,
+            String sceneConditionKey, String changeOption, String changeOptionKey, String changeReason,
+            String illuminationCondition, String illuminationConditionKey, String productPeopleName,
+            String productPeopleUnit, String productPeopleDuties, String safeguard,
+            String sceneConductor, String sceneConductorKey, String overview, String overviewId,
             String opinionId, String opinionResultId, String crimePeopleNumber,
-            String crimePeopleNumberKey, String crimePeopleNumberDesc,
-            String crimeMeans, String crimeMeansKey, String crimeMeansDesc,
-            String crimeCharacter, String crimeCharacterKey,
-            String crimeCharacterDesc, String crimeEntrance,
+            String crimePeopleNumberKey, String crimePeopleNumberDesc, String crimeMeans,
+            String crimeMeansKey, String crimeMeansDesc, String crimeCharacter,
+            String crimeCharacterKey, String crimeCharacterDesc, String crimeEntrance,
             String crimeEntranceKey, String crimeEntranceDesc, String crimeTiming,
-            String crimeTimingKey, String crimeTimingDesc, String selectObject,
-            String selectObjectKey, String selectObjectDesc, String crimeExport,
-            String crimeExportKey, String crimeExportDesc,
-            String crimePeopleFeature, String crimePeopleFeatureKey,
-            String crimePeopleFeatureDesc, String crimeFeature,
-            String crimeFeatureKey, String crimeFeatureDesc, String intrusiveMethod,
-            String intrusiveMethodKey, String intrusiveMethodDesc,
-            String selectLocation, String selectLocationKey,
-            String selectLocationDesc, String crimePurpose, String crimePurposeKey,
-            String crimePurposeDesc) {
+            String crimeTimingKey, String crimeTimingDesc, String selectObject, String selectObjectKey,
+            String selectObjectDesc, String crimeExport, String crimeExportKey, String crimeExportDesc,
+            String crimePeopleFeature, String crimePeopleFeatureKey, String crimePeopleFeatureDesc,
+            String crimeFeature, String crimeFeatureKey, String crimeFeatureDesc,
+            String intrusiveMethod, String intrusiveMethodKey, String intrusiveMethodDesc,
+            String selectLocation, String selectLocationKey, String selectLocationDesc,
+            String crimePurpose, String crimePurposeKey, String crimePurposeDesc, String rev1,
+            String rev2, String rev3, String rev4) {
         this.id = id;
         this.sceneId = sceneId;
         this.sceneNo = sceneNo;
@@ -349,10 +346,88 @@ public class CrimeItem implements Serializable {
         this.crimePurpose = crimePurpose;
         this.crimePurposeKey = crimePurposeKey;
         this.crimePurposeDesc = crimePurposeDesc;
+        this.rev1 = rev1;
+        this.rev2 = rev2;
+        this.rev3 = rev3;
+        this.rev4 = rev4;
     }
 
     @Generated(hash = 1038680592)
     public CrimeItem() {
+    }
+
+
+
+    public void setCellResultItem(List<CellResultItemEntity> cellResultItem) {
+        this.cellResultItem = cellResultItem;
+    }
+
+    public void setReleatedPeopleItem(List<ContactsEntity> releatedPeopleItem) {
+        this.releatedPeopleItem = releatedPeopleItem;
+    }
+
+    public void setLostItem(List<ItemEntity> lostItem) {
+        this.lostItem = lostItem;
+    }
+
+    public void setCrimeToolItem(List<ToolEntity> crimeToolItem) {
+        this.crimeToolItem = crimeToolItem;
+    }
+
+    public void setPositionItem(List<Photo> positionItem) {
+        this.positionItem = positionItem;
+    }
+
+    public void setFlatItem(List<Photo> flatItem) {
+        this.flatItem = flatItem;
+    }
+
+    public void setDwgItem(List<Photo> dwgItem) {
+        this.dwgItem = dwgItem;
+    }
+
+    public void setPositionPhotoItem(List<Photo> positionPhotoItem) {
+        this.positionPhotoItem = positionPhotoItem;
+    }
+
+    public void setOverviewPhotoItem(List<Photo> overviewPhotoItem) {
+        this.overviewPhotoItem = overviewPhotoItem;
+    }
+
+    public void setImportantPhotoItem(List<Photo> importantPhotoItem) {
+        this.importantPhotoItem = importantPhotoItem;
+    }
+
+    public void setDetailPhotoItem(List<Photo> detailPhotoItem) {
+        this.detailPhotoItem = detailPhotoItem;
+    }
+
+    public void setEvidenceItem(List<EvidenceEntity> evidenceItem) {
+        this.evidenceItem = evidenceItem;
+    }
+
+    public void setMonitoringPhotoItem(List<Photo> monitoringPhotoItem) {
+        this.monitoringPhotoItem = monitoringPhotoItem;
+    }
+
+    public void setCameraPhotoItem(List<Photo> cameraPhotoItem) {
+        this.cameraPhotoItem = cameraPhotoItem;
+    }
+
+    public void setWitnessItem(List<WitnessEntity> witnessItem) {
+        this.witnessItem = witnessItem;
+    }
+
+    public void setWifiInfos(List<SceneWifiInfo> wifiInfos) {
+        this.wifiInfos = wifiInfos;
+    }
+
+    public void setGoodEntities(List<GoodEntity> goodEntities) {
+        this.goodEntities = goodEntities;
+    }
+
+    public void setKctbasestationdataBeans(List<KCTBASESTATIONDATABean> kctbasestationdataBeans) {
+        this.kctbasestationdataBeans = kctbasestationdataBeans;
     }
 
     public String getId() {
@@ -1107,6 +1182,38 @@ public class CrimeItem implements Serializable {
         this.crimePurposeDesc = crimePurposeDesc;
     }
 
+    public String getRev1() {
+        return this.rev1;
+    }
+
+    public void setRev1(String rev1) {
+        this.rev1 = rev1;
+    }
+
+    public String getRev2() {
+        return this.rev2;
+    }
+
+    public void setRev2(String rev2) {
+        this.rev2 = rev2;
+    }
+
+    public String getRev3() {
+        return this.rev3;
+    }
+
+    public void setRev3(String rev3) {
+        this.rev3 = rev3;
+    }
+
+    public String getRev4() {
+        return this.rev4;
+    }
+
+    public void setRev4(String rev4) {
+        this.rev4 = rev4;
+    }
+
     /**
      * To-many relationship, resolved on first access (and after reset).
      * Changes to to-many relations are not persisted, make changes to the target entity.
@@ -1118,10 +1225,8 @@ public class CrimeItem implements Serializable {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
-            CellResultItemEntityDao targetDao = daoSession
-                    .getCellResultItemEntityDao();
-            List<CellResultItemEntity> cellResultItemNew = targetDao
-                    ._queryCrimeItem_CellResultItem(id);
+            CellResultItemEntityDao targetDao = daoSession.getCellResultItemEntityDao();
+            List<CellResultItemEntity> cellResultItemNew = targetDao._queryCrimeItem_CellResultItem(id);
             synchronized (this) {
                 if (cellResultItem == null) {
                     cellResultItem = cellResultItemNew;
@@ -1206,8 +1311,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             ToolEntityDao targetDao = daoSession.getToolEntityDao();
-            List<ToolEntity> crimeToolItemNew = targetDao
-                    ._queryCrimeItem_CrimeToolItem(id);
+            List<ToolEntity> crimeToolItemNew = targetDao._queryCrimeItem_CrimeToolItem(id);
             synchronized (this) {
                 if (crimeToolItem == null) {
                     crimeToolItem = crimeToolItemNew;
@@ -1235,8 +1339,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> positionItemNew = targetDao
-                    ._queryCrimeItem_PositionItem(id);
+            List<Photo> positionItemNew = targetDao._queryCrimeItem_PositionItem(id);
             synchronized (this) {
                 if (positionItem == null) {
                     positionItem = positionItemNew;
@@ -1320,8 +1423,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> positionPhotoItemNew = targetDao
-                    ._queryCrimeItem_PositionPhotoItem(id);
+            List<Photo> positionPhotoItemNew = targetDao._queryCrimeItem_PositionPhotoItem(id);
             synchronized (this) {
                 if (positionPhotoItem == null) {
                     positionPhotoItem = positionPhotoItemNew;
@@ -1349,8 +1451,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> overviewPhotoItemNew = targetDao
-                    ._queryCrimeItem_OverviewPhotoItem(id);
+            List<Photo> overviewPhotoItemNew = targetDao._queryCrimeItem_OverviewPhotoItem(id);
             synchronized (this) {
                 if (overviewPhotoItem == null) {
                     overviewPhotoItem = overviewPhotoItemNew;
@@ -1378,8 +1479,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> importantPhotoItemNew = targetDao
-                    ._queryCrimeItem_ImportantPhotoItem(id);
+            List<Photo> importantPhotoItemNew = targetDao._queryCrimeItem_ImportantPhotoItem(id);
             synchronized (this) {
                 if (importantPhotoItem == null) {
                     importantPhotoItem = importantPhotoItemNew;
@@ -1407,8 +1507,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> detailPhotoItemNew = targetDao
-                    ._queryCrimeItem_DetailPhotoItem(id);
+            List<Photo> detailPhotoItemNew = targetDao._queryCrimeItem_DetailPhotoItem(id);
             synchronized (this) {
                 if (detailPhotoItem == null) {
                     detailPhotoItem = detailPhotoItemNew;
@@ -1436,8 +1535,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             EvidenceEntityDao targetDao = daoSession.getEvidenceEntityDao();
-            List<EvidenceEntity> evidenceItemNew = targetDao
-                    ._queryCrimeItem_EvidenceItem(id);
+            List<EvidenceEntity> evidenceItemNew = targetDao._queryCrimeItem_EvidenceItem(id);
             synchronized (this) {
                 if (evidenceItem == null) {
                     evidenceItem = evidenceItemNew;
@@ -1465,8 +1563,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> monitoringPhotoItemNew = targetDao
-                    ._queryCrimeItem_MonitoringPhotoItem(id);
+            List<Photo> monitoringPhotoItemNew = targetDao._queryCrimeItem_MonitoringPhotoItem(id);
             synchronized (this) {
                 if (monitoringPhotoItem == null) {
                     monitoringPhotoItem = monitoringPhotoItemNew;
@@ -1494,8 +1591,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             PhotoDao targetDao = daoSession.getPhotoDao();
-            List<Photo> cameraPhotoItemNew = targetDao
-                    ._queryCrimeItem_CameraPhotoItem(id);
+            List<Photo> cameraPhotoItemNew = targetDao._queryCrimeItem_CameraPhotoItem(id);
             synchronized (this) {
                 if (cameraPhotoItem == null) {
                     cameraPhotoItem = cameraPhotoItemNew;
@@ -1523,8 +1619,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             WitnessEntityDao targetDao = daoSession.getWitnessEntityDao();
-            List<WitnessEntity> witnessItemNew = targetDao
-                    ._queryCrimeItem_WitnessItem(id);
+            List<WitnessEntity> witnessItemNew = targetDao._queryCrimeItem_WitnessItem(id);
             synchronized (this) {
                 if (witnessItem == null) {
                     witnessItem = witnessItemNew;
@@ -1552,8 +1647,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             SceneWifiInfoDao targetDao = daoSession.getSceneWifiInfoDao();
-            List<SceneWifiInfo> wifiInfosNew = targetDao
-                    ._queryCrimeItem_WifiInfos(id);
+            List<SceneWifiInfo> wifiInfosNew = targetDao._queryCrimeItem_WifiInfos(id);
             synchronized (this) {
                 if (wifiInfos == null) {
                     wifiInfos = wifiInfosNew;
@@ -1581,8 +1675,7 @@ public class CrimeItem implements Serializable {
                 throw new DaoException("Entity is detached from DAO context");
             }
             GoodEntityDao targetDao = daoSession.getGoodEntityDao();
-            List<GoodEntity> goodEntitiesNew = targetDao
-                    ._queryCrimeItem_GoodEntities(id);
+            List<GoodEntity> goodEntitiesNew = targetDao._queryCrimeItem_GoodEntities(id);
             synchronized (this) {
                 if (goodEntities == null) {
                     goodEntities = goodEntitiesNew;
@@ -1609,8 +1702,7 @@ public class CrimeItem implements Serializable {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
             }
-            KCTBASESTATIONDATABeanDao targetDao = daoSession
-                    .getKCTBASESTATIONDATABeanDao();
+            KCTBASESTATIONDATABeanDao targetDao = daoSession.getKCTBASESTATIONDATABeanDao();
             List<KCTBASESTATIONDATABean> kctbasestationdataBeansNew = targetDao
                     ._queryCrimeItem_KctbasestationdataBeans(id);
             synchronized (this) {
@@ -1669,77 +1761,5 @@ public class CrimeItem implements Serializable {
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getCrimeItemDao() : null;
-    }
-
-    public void setCellResultItem(List<CellResultItemEntity> cellResultItem) {
-        this.cellResultItem = cellResultItem;
-    }
-
-    public void setReleatedPeopleItem(List<ContactsEntity> releatedPeopleItem) {
-        this.releatedPeopleItem = releatedPeopleItem;
-    }
-
-    public void setLostItem(List<ItemEntity> lostItem) {
-        this.lostItem = lostItem;
-    }
-
-    public void setCrimeToolItem(List<ToolEntity> crimeToolItem) {
-        this.crimeToolItem = crimeToolItem;
-    }
-
-    public void setPositionItem(List<Photo> positionItem) {
-        this.positionItem = positionItem;
-    }
-
-    public void setFlatItem(List<Photo> flatItem) {
-        this.flatItem = flatItem;
-    }
-
-    public void setDwgItem(List<Photo> dwgItem) {
-        this.dwgItem = dwgItem;
-    }
-
-    public void setPositionPhotoItem(List<Photo> positionPhotoItem) {
-        this.positionPhotoItem = positionPhotoItem;
-    }
-
-    public void setOverviewPhotoItem(List<Photo> overviewPhotoItem) {
-        this.overviewPhotoItem = overviewPhotoItem;
-    }
-
-    public void setImportantPhotoItem(List<Photo> importantPhotoItem) {
-        this.importantPhotoItem = importantPhotoItem;
-    }
-
-    public void setDetailPhotoItem(List<Photo> detailPhotoItem) {
-        this.detailPhotoItem = detailPhotoItem;
-    }
-
-    public void setEvidenceItem(List<EvidenceEntity> evidenceItem) {
-        this.evidenceItem = evidenceItem;
-    }
-
-    public void setMonitoringPhotoItem(List<Photo> monitoringPhotoItem) {
-        this.monitoringPhotoItem = monitoringPhotoItem;
-    }
-
-    public void setCameraPhotoItem(List<Photo> cameraPhotoItem) {
-        this.cameraPhotoItem = cameraPhotoItem;
-    }
-
-    public void setWitnessItem(List<WitnessEntity> witnessItem) {
-        this.witnessItem = witnessItem;
-    }
-
-    public void setWifiInfos(List<SceneWifiInfo> wifiInfos) {
-        this.wifiInfos = wifiInfos;
-    }
-
-    public void setGoodEntities(List<GoodEntity> goodEntities) {
-        this.goodEntities = goodEntities;
-    }
-
-    public void setKctbasestationdataBeans(List<KCTBASESTATIONDATABean> kctbasestationdataBeans) {
-        this.kctbasestationdataBeans = kctbasestationdataBeans;
     }
 }

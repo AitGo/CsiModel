@@ -230,6 +230,11 @@ public class Extract_AddActivity extends BaseAcitivity implements Extract_AddCon
     }
 
     @Override
+    public String getCollectedId() {
+        return entity.getRev2();
+    }
+
+    @Override
     public void setCollectedName(String name) {
         collectedName.setText(name);
     }
@@ -238,6 +243,7 @@ public class Extract_AddActivity extends BaseAcitivity implements Extract_AddCon
         collectedName.setText(StringUtils.selectUserValue2String(users));
         entity.setCollectedName(StringUtils.selectUserValue2String(users));
         entity.setCollectedIds(StringUtils.selectUserKey2String(users));
+        entity.setRev2(StringUtils.selectUserId2String(users));
     }
 
     @Override

@@ -172,7 +172,7 @@ public class Extract_AddPresenter implements Extract_AddContract.Presenter {
 
     @Override
     public void getPeople() {
-        String value = view.getCollectedName();
+        String value = view.getCollectedId();
         model.selectGetPeople(model.getOrganId(), new callBack() {
             @Override
             public void onSuccess(String date) {

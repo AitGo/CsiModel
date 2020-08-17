@@ -263,11 +263,17 @@ public class BaseInfoActivity extends BaseAcitivity implements BaseInfoContract.
         this.accessInspectors.setText(StringUtils.selectUserValue2String(users));
         crimeItem.setAccessInspectors(StringUtils.selectUserValue2String(users));
         crimeItem.setAccessInspectorsKey(StringUtils.selectUserKey2String(users));
+        crimeItem.setRev1(StringUtils.selectUserId2String(users));
     }
 
     @Override
     public String getAccessInspectors() {
         return this.accessInspectors.getText().toString();
+    }
+
+    @Override
+    public String getAccessInspectorsId() {
+        return crimeItem.getRev1();
     }
 
     @Override
