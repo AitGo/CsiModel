@@ -92,7 +92,7 @@
 
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/accessPolicemen"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -229,7 +229,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/temperature"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -270,7 +270,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/humidity"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -358,7 +358,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/unitsAssigned"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -444,7 +444,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/productPeople_name"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -483,7 +483,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/productPeople_unit"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -523,7 +523,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/productPeople_duties"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -563,7 +563,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/safeguard"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -739,7 +739,7 @@
                 </LinearLayout>
 
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/change_reason"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"

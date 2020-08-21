@@ -6,7 +6,7 @@
                 android:layout_height="match_parent">
 
 
-    <com.liany.csiclient.widget.image.widget.ComplexImageView
+    <com.liany.clientmodel.widget.image.widget.ComplexImageView
             android:id="@+id/view_complex_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

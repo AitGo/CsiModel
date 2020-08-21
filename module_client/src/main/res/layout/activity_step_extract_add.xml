@@ -125,7 +125,7 @@
 
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/material_name"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -162,7 +162,7 @@
                         android:layout_marginRight="16dp"/>
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/collected_position"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -218,7 +218,7 @@
                     android:drawableRight="@mipmap/dropdown"
                     android:background="@drawable/bg_et_underline_selector"/>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/et_collected_method"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -310,7 +310,7 @@
                         android:visibility="invisible"/>
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/collected_num"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -395,7 +395,7 @@
                         android:visibility="invisible"/>
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/remark"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"

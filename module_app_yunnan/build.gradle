@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        defaultConfig {
+            ndk {
+                // 设置支持的SO库架构
+                abiFilters 'armeabi-v7a' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'Droitech'
+            keyPassword 'Droitech'
+            storeFile file('../ReleaseKeyStore.jks')
+            storePassword 'Droitech'
+        }
+        release {
+            keyAlias 'Droitech'
+            keyPassword 'Droitech'
+            storeFile file('../ReleaseKeyStore.jks')
+            storePassword 'Droitech'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug //签名
+            signingConfig signingConfigs.release //签名
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+            minifyEnabled false
+            shrinkResources false
+        }
+
+        release {
+            signingConfig signingConfigs.release //签名
+            buildConfigField "boolean", "LOG_DEBUG", "false"   // 不显示Log
+            minifyEnabled false //混淆
+            shrinkResources false  // 移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //配置自定义打包名称
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            // 输出apk名称为great_v1.0_wandoujia.apk
+            def fileName = "CsiClient_V${variant.versionName}_C${variant.versionCode}_${variant.name}_"+ releaseTime() + ".apk"
+            outputFileName = fileName
+        }
+    }
+
+    packagingOptions {
+        pickFirst 'lib/armeabi-v7a/libnative-lib.so'
+        pickFirst 'lib/arm64-v8a/libnative-lib.so'
+    }
+}
+
+//获取时间戳
+def releaseTime() {
+    return new Date().format("MMdd", TimeZone.getTimeZone("UTC"))
+}
+
+repositories{
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.support.multidex
+    implementation(name: 'XH_librarysso-YunNan', ext: 'aar')
+    implementation project(':lib_common')
+    if (!isModule.toBoolean()) {
+        implementation project(':module_client')
+        implementation project(':module_server')
+    }
+}

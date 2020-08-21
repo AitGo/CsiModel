@@ -50,7 +50,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/name_editView"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -183,7 +183,7 @@
                     android:layout_marginRight="16dp"/>
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/contact_number_editView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -210,7 +210,7 @@
                 android:textColor="#FF999999"
                 android:layout_marginRight="16dp"/>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/address_editView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

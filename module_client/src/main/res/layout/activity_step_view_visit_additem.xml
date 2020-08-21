@@ -41,7 +41,7 @@
                         android:layout_marginRight="16dp"/>
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/et_item_name"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -79,7 +79,7 @@
                         android:layout_marginRight="16dp"/>
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/et_brand_model"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -118,7 +118,7 @@
 
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/et_amount"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -155,7 +155,7 @@
                         android:layout_marginRight="6dp"/>
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/et_value"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -195,7 +195,7 @@
 
                 </LinearLayout>
 
-                <com.liany.csiclient.widget.ClearableEditText
+                <com.liany.clientmodel.widget.ClearableEditText
                     android:id="@+id/et_feature_description"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"

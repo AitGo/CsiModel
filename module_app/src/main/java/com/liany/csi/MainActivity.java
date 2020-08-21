@@ -5,14 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import pub.devrel.easypermissions.EasyPermissions;
 
 import android.Manifest;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.liany.csi.base.AppApplication;
-import com.liany.csiclient.view.LoginActivity;
-import com.liany.csiclient.view.SplashActivity;
 import com.liany.csiserverapp.andServer.manager.ServerManager;
 import com.liany.csiserverapp.debug.ServerApplication;
 

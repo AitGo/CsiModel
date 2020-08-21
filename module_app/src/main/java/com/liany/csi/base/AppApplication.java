@@ -1,6 +1,5 @@
 package com.liany.csi.base;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
@@ -12,9 +11,8 @@ import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
 import com.baidu.ocr.sdk.model.AccessToken;
 import com.kc.criminaiinvest.bean.ExecuteDraw;
-import com.liany.csi.R;
-import com.liany.csiclient.utils.CrashHandler;
-import com.liany.csiclient.utils.LogUtils;
+import com.liany.clientmodel.utils.CrashHandler;
+import com.liany.clientmodel.utils.LogUtils;
 import com.liany.csiserverapp.base.Constants;
 import com.liany.csiserverapp.base.GreenDaoContext;
 import com.liany.csiserverapp.dao.database.greenDao.db.DaoMaster;
@@ -47,12 +45,12 @@ public class AppApplication extends BaseApplication {
         super.onCreate();
         boolean isModule = BuildConfig.isModule;
         if(isModule) {
-            com.liany.csiclient.base.Constants.ipAddress = "http://" + com.liany.csiclient.utils.IpUtils.getIpAddress(BaseApplication.getContext()) +  ":8080";
+            com.liany.clientmodel.base.Constants.ipAddress = "http://" + com.liany.clientmodel.utils.IpUtils.getIpAddress(BaseApplication.getContext()) +  ":8080";
 //            Constants.ipAddress = "http://192.168.43.1:8080";
             Constants.ip = IpUtils.getIpAddress(ServerApplication.getContext());
 //            Constants.ip = "192.168.43.1";
         }else {
-            com.liany.csiclient.base.Constants.ipAddress = "http://localhost:8080";
+            com.liany.clientmodel.base.Constants.ipAddress = "http://localhost:8080";
             Constants.ip = "127.0.0.1";
         }
         //获取context

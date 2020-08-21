@@ -24,7 +24,7 @@
               android:layout_alignParentBottom="true"
               android:background="#73000000">
 
-    <com.liany.csiclient.widget.myCamera.ui.IndicatorView
+    <com.liany.clientmodel.widget.myCamera.ui.IndicatorView
         android:visibility="invisible"
         android:id="@+id/indicator_view"
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:gravity="center">
-        <com.liany.csiclient.widget.myCamera.ui.CircleImageView
+        <com.liany.clientmodel.widget.myCamera.ui.CircleImageView
             android:visibility="invisible"
             android:id="@+id/thumbnail"
             android:layout_width="@dimen/thumbnail_size"
@@ -48,7 +48,7 @@
             app:border_width="@dimen/thumbnail_border_width"
             android:layout_marginEnd="@dimen/bottom_control_margin" />
 
-        <com.liany.csiclient.widget.myCamera.ui.ShutterButton
+        <com.liany.clientmodel.widget.myCamera.ui.ShutterButton
             android:id="@+id/btn_shutter"
             android:layout_width="@dimen/shutter_button_size"
             android:layout_height="@dimen/shutter_button_size" />

@@ -25,7 +25,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="6dp"/>
 
-    <com.liany.csiclient.widget.paint.PaintView
+    <com.liany.clientmodel.widget.paint.PaintView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/view"

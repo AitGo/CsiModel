@@ -36,7 +36,7 @@
 
         </LinearLayout>
 
-        <com.liany.csiclient.widget.ClearableEditText
+        <com.liany.clientmodel.widget.ClearableEditText
             android:id="@+id/et_tool_name"
             android:layout_width="match_parent"
             android:layout_height="60dp"

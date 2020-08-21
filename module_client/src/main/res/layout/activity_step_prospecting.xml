@@ -174,7 +174,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <com.liany.csiclient.widget.ClearableEditText
+                        <com.liany.clientmodel.widget.ClearableEditText
                             android:id="@+id/location"
                             android:textColor="#ff3e3e3e"
                             android:layout_width="match_parent"
@@ -225,7 +225,7 @@
 
                     </LinearLayout>
 
-                    <com.liany.csiclient.widget.ClearableEditText
+                    <com.liany.clientmodel.widget.ClearableEditText
                         android:id="@+id/accessLocation"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"

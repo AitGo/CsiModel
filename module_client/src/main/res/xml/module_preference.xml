@@ -18,19 +18,19 @@
 <PreferenceGroup
     xmlns:camera="http://schemas.android.com/apk/res-auto">
 
-    <com.liany.csiclient.widget.myCamera.data.CamListPreference
-        camera:key="com.liany.csiclient.widget.myCamera.module.VideoModule"
+    <com.liany.clientmodel.widget.myCamera.data.CamListPreference
+        camera:key="com.liany.clientmodel.widget.myCamera.module.VideoModule"
         camera:title="@string/mode_video"/>
 
-    <com.liany.csiclient.widget.myCamera.data.CamListPreference
-        camera:key="com.liany.csiclient.widget.myCamera.module.PhotoModule"
+    <com.liany.clientmodel.widget.myCamera.data.CamListPreference
+        camera:key="com.liany.clientmodel.widget.myCamera.module.PhotoModule"
         camera:title="@string/mode_photo"/>
 
-    <com.liany.csiclient.widget.myCamera.data.CamListPreference
-        camera:key="com.liany.csiclient.widget.myCamera.module.ProfessionalModule"
+    <com.liany.clientmodel.widget.myCamera.data.CamListPreference
+        camera:key="com.liany.clientmodel.widget.myCamera.module.ProfessionalModule"
         camera:title="@string/mode_professional"/>
 
-    <com.liany.csiclient.widget.myCamera.data.CamListPreference
-        camera:key="com.liany.csiclient.widget.myCamera.module.DualCameraModule"
+    <com.liany.clientmodel.widget.myCamera.data.CamListPreference
+        camera:key="com.liany.clientmodel.widget.myCamera.module.DualCameraModule"
         camera:title="@string/mode_dual_camera"/>
 </PreferenceGroup>

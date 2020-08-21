@@ -31,7 +31,7 @@
             android:layout_weight="1"/>
 
     </LinearLayout>
-    <com.liany.csiclient.widget.ClearableEditText
+    <com.liany.clientmodel.widget.ClearableEditText
         android:id="@+id/overview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

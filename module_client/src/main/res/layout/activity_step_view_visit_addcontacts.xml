@@ -241,7 +241,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/et_tel"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -284,7 +284,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/et_address"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -327,7 +327,7 @@
 
             </LinearLayout>
 
-            <com.liany.csiclient.widget.ClearableEditText
+            <com.liany.clientmodel.widget.ClearableEditText
                 android:id="@+id/et_id"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"

@@ -15,7 +15,7 @@
   ~ limitations under the License.
   -->
 
-<com.liany.csiclient.widget.myCamera.ui.CoverView
+<com.liany.clientmodel.widget.myCamera.ui.CoverView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cover_view"
     android:layout_width="match_parent"
@@ -32,4 +32,4 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_switch_module"/>
 
-</com.liany.csiclient.widget.myCamera.ui.CoverView>
+</com.liany.clientmodel.widget.myCamera.ui.CoverView>
