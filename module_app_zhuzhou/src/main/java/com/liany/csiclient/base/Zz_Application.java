@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.amap.api.location.AMapLocationClientOption;
 import com.baidu.ocr.sdk.OCR;
 import com.baidu.ocr.sdk.OnResultListener;
 import com.baidu.ocr.sdk.exception.OCRError;
@@ -43,6 +44,7 @@ public class Zz_Application extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+        com.liany.clientmodel.base.Constants.AMAP_MODE = AMapLocationClientOption.AMapLocationMode.Device_Sensors;
         boolean isModule = BuildConfig.isModule;
         if(isModule) {
             com.liany.clientmodel.base.Constants.ipAddress = "http://" + com.liany.clientmodel.utils.IpUtils.getIpAddress(BaseApplication.getContext()) +  ":8080";
