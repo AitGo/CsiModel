@@ -108,9 +108,10 @@ public class Zz_LoginActivity extends BaseAcitivity implements Zz_LoginContract.
     public void Event(Zz_BaseEvent.CommonEvent event) {
         if (event == Zz_BaseEvent.CommonEvent.JWTPT_GETCURRENTUSER_SUCCESS) {
             UserExt user = (UserExt) event.getObject();
-            if(user == null)
+            if(user == null) {
                 LogUtils.e("拿到一个空的用户对象");
-            ToastUtils.showShort("获取的登录用户为空");
+                ToastUtils.showShort("获取的登录用户为空");
+            }
             if(user != null) {
                 LogUtils.e("username:" + user.getUser().getUserName());
                 //警号
@@ -119,7 +120,7 @@ public class Zz_LoginActivity extends BaseAcitivity implements Zz_LoginContract.
             }
         }else if(event == Zz_BaseEvent.CommonEvent.JWTPT_GETCURRENTUSER_ERROR) {
             Exception exception = (Exception) event.getObject();
-            ToastUtils.showShort(exception.getMessage());
+            ToastUtils.showLong(exception.getMessage());
         }
     }
 
