@@ -1,2 +1,2 @@
-include ':module_client', ':module_server', ':module_app', ':lib_common', ':ocr_ui', ':module_app_changsha', ':module_app_yunnan', ':module_app_ks', ':module_app_zhuzhou'
+include ':module_client', ':module_server', ':module_app', ':lib_common', ':ocr_ui', ':module_app_changsha', ':module_app_yunnan', ':module_app_ks', ':module_app_zhuzhou', ':module_app_yantai'
 rootProject.name='CsiModel'
