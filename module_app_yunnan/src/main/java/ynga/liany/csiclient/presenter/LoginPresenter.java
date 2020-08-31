@@ -20,7 +20,7 @@ import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import ynga.liany.csiclient.LoginActivity;
+import ynga.liany.csiclient.Ks_LoginActivity;
 import ynga.liany.csiclient.contract.LoginContract;
 import ynga.liany.csiclient.model.LoginModel;
 
@@ -153,7 +153,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     }else {
                         //提示用户开户拍照权限
                         String[] perms = {Manifest.permission.CAMERA};
-                        ActivityCompat.requestPermissions((LoginActivity)mContext, perms, Constants.code_permissions_camera);
+                        ActivityCompat.requestPermissions((Ks_LoginActivity)mContext, perms, Constants.code_permissions_camera);
                     }
                 }else {
                     view.initToken();

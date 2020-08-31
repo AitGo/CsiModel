@@ -1,7 +1,6 @@
 package ynga.liany.csiclient;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import pub.devrel.easypermissions.EasyPermissions;
 import ynga.liany.csiclient.base.AppApplication;
 import ynga.liany.csiclient.contract.LoginContract;
@@ -9,14 +8,11 @@ import ynga.liany.csiclient.presenter.LoginPresenter;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -34,7 +30,6 @@ import com.liany.clientmodel.utils.ClickUtils;
 import com.liany.clientmodel.utils.LogUtils;
 import com.liany.clientmodel.utils.ToastUtils;
 import com.liany.clientmodel.widget.MyDialog;
-import com.liany.csiserverapp.AndService;
 import com.liany.csiserverapp.andServer.manager.ServerManager;
 import com.liany.csiserverapp.debug.ServerApplication;
 import com.uuzuche.lib_zxing.activity.CaptureActivity;
@@ -44,7 +39,7 @@ import com.xinghuo.mpaas.librarysso.VerifyToken;
 
 import java.util.List;
 
-public class LoginActivity extends BaseAcitivity implements LoginContract.View, EasyPermissions.PermissionCallbacks, View.OnClickListener {
+public class Ks_LoginActivity extends BaseAcitivity implements LoginContract.View, EasyPermissions.PermissionCallbacks, View.OnClickListener {
 
     /**
      * 需要进行检测的权限数组
@@ -147,7 +142,7 @@ public class LoginActivity extends BaseAcitivity implements LoginContract.View, 
 
     @Override
     public void showScanView(int code) {
-        Intent intent = new Intent(LoginActivity.this, CaptureActivity.class);
+        Intent intent = new Intent(Ks_LoginActivity.this, CaptureActivity.class);
         startActivityForResult(intent, code);
     }
 
@@ -237,7 +232,7 @@ public class LoginActivity extends BaseAcitivity implements LoginContract.View, 
 
     @Override
     public void showScanView() {
-        Intent intent = new Intent(LoginActivity.this, CaptureActivity.class);
+        Intent intent = new Intent(Ks_LoginActivity.this, CaptureActivity.class);
         startActivityForResult(intent, Constants.code_scan);
     }
 
